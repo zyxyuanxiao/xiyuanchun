@@ -1,0 +1,6 @@
+/* pages/question/question.wxss */
+
+.container {
+  background-color: #fff;
+  padding: 0 20rpx;
+}

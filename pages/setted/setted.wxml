@@ -1,0 +1,8 @@
+<!--pages/setted/setted.wxml-->
+<!-- <text>pages/setted/setted.wxml</text> -->
+<view class='container'>
+  <view class='jiedan flex-row center between'>
+    <text>消息提示</text>
+    <switch color="#d8995b" checked='{{checked}}' bindchange="changeSetted" />
+  </view>
+</view>

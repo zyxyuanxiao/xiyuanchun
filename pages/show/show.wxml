@@ -1,0 +1,23 @@
+<!--pages/show/show.wxml-->
+<view class='container'>
+  <view class='title'>推荐调酒师</view>
+  <block wx:for="{{showList}}" wx:key="{{item.id}}">
+    <view class='showItem'>
+      <image class='cover' src='{{item.photo}}' mode='widthFix'></image>
+      <view class='name'>{{item.realname}}</view>
+      <view class='assess flex-row center'>
+        <text>评价:</text>
+        <view class='flex-row'>
+          <block wx:for="{{item.score}}" wx:for-item="star" wx:key="{{index}}">
+            <image class='img-star' src='/images/show/star.png' mode='widthFix'></image>
+          </block>
+          <block wx:for="{{5-item.score}}" wx:for-item="star" wx:key="{{index}}">
+            <image class='img-star' src='/images/show/no.png' mode='widthFix'></image>
+          </block>
+        </view>
+      </view>
+      <view class='work'>擅长：{{item.speciality}}</view>
+      <!-- <view class='price'><text>{{item.price}}</text> /小时</view> -->
+    </view>
+  </block>
+</view>

@@ -1,0 +1,115 @@
+.shopsInfo {
+  width: 698rpx;
+  margin: 0 auto;
+  background-color: #fff;
+  margin-top: 20rpx;
+  border-radius: 4rpx;
+}
+
+.container {
+  padding-top: 1rpx;
+}
+
+.shopsInfo .title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: rgb(51, 51, 51);
+  line-height: 80rpx;
+  border-bottom: 1rpx solid rgb(230, 230, 230);
+  padding-left: 20rpx;
+}
+
+.kehuinfo .detail {
+  padding: 40rpx 20rpx;
+}
+
+.kehuinfo .detail .info {
+  font-size: 28rpx;
+  color: rgb(51, 51, 51);
+  line-height: 50rpx;
+}
+
+.shopsInfo .detail .left .img {
+  width: 100rpx;
+  height: 100rpx;
+  padding: 40rpx 20rpx;
+}
+
+.shopsInfo .detail .left .good-name {
+  font-size: 28rpx;
+  color: rgb(51, 51, 51);
+  line-height: 45rpx;
+}
+
+.shopsInfo .detail .left .num {
+  font-size: 24rpx;
+  color: rgb(153, 153, 153);
+  line-height: 45rpx;
+}
+
+.shopsInfo .detail .right {
+  font-size: 32rpx;
+  color: rgb(0, 0, 0);
+  padding-right: 20rpx;
+}
+
+.operation .accept {
+  width: 326rpx;
+  height: 70rpx;
+  background: linear-gradient(to right, rgb(224, 175, 99), rgb(198, 141, 18));
+  color: #fff;
+  font-size: 28rpx;
+  border-radius: 70rpx;
+  text-align: center;
+  line-height: 70rpx;
+}
+
+.status {
+  color: #4a94ff;
+}
+
+.status2 {
+  color: #f77;
+}
+
+.operation .refuse {
+  width: 326rpx;
+  height: 70rpx;
+  background: transparent;
+  color: rgb(228, 170, 51);
+  font-size: 28rpx;
+  border-radius: 70rpx;
+  text-align: center;
+  line-height: 70rpx;
+  border: 1rpx solid rgb(228, 170, 51);
+}
+
+.content {
+  padding: 20rpx;
+}
+
+.content .left-time view {
+  font-size: 28rpx;
+  color: rgb(102, 102, 102);
+  line-height: 50rpx;
+}
+
+.content .left-time view text {
+  color: rgb(51, 51, 51);
+}
+
+.content  .money {
+  font-size: 46rpx;
+  color: rgb(228, 170, 51);
+}
+
+.operation {
+  width: 326rpx;
+  height: 70rpx;
+  margin: 50rpx auto;
+  text-align: center;
+  line-height: 70rpx;
+  color: #fff;
+  border-radius: 70rpx;
+  background: linear-gradient(to right, rgb(224, 175, 99), rgb(198, 141, 18));
+}

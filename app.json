@@ -1,0 +1,76 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/nearby/nearby",
+    "pages/login/login",
+    "pages/classify/classify",
+    "pages/commodity/commodity",
+    "pages/show/show",
+    "pages/mine/mine",
+    "pages/goodsDetail/goodsDetail",
+    "pages/takeOrder/takeOrder",
+    "pages/order/order",
+    "pages/orderDetail/orderDetail",
+    "pages/question/question",
+    "pages/feedback/feedback",
+    "pages/assessList/assessList",
+    "pages/myOrder/myOrder",
+    "pages/apply/apply",
+    "pages/achievement/achievement",
+    "pages/second/second",
+    "pages/classifyList/classifyList",
+    "pages/assess/assess",
+    "pages/startTask/startTask",
+    "pages/childTasks/childTasks",
+    "pages/myWallet/myWallet",
+    "pages/serverce/serverce",
+    "pages/mycart/mycart",
+    "pages/buyconfirm/buyconfirm",
+    "pages/submitServer/submitServer",
+    "pages/subscribe/subscribe",
+    "pages/setted/setted"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "溪缘春酒业",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "color": "#999",
+    "selectedColor": "#d8995b",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/images/tabbar/01.png",
+        "selectedIconPath": "/images/tabbar/01_on.png"
+      },
+      {
+        "pagePath": "pages/classify/classify",
+        "text": "产品",
+        "iconPath": "/images/tabbar/02.png",
+        "selectedIconPath": "/images/tabbar/02_on.png"
+      },
+      {
+        "pagePath": "pages/serverce/serverce",
+        "text": "服务",
+        "iconPath": "/images/tabbar/03.png",
+        "selectedIconPath": "/images/tabbar/03_on.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "个人中心",
+        "iconPath": "/images/tabbar/04.png",
+        "selectedIconPath": "/images/tabbar/04_on.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序获取附近的数据"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+/* pages/takeOrder/takeOrder.wxss */
+
+.container {
+  background-color: #f7f7f7;
+  padding-top: 1rpx;
+}
+
+.content {
+  background-color: #fff;
+  border-radius: 20rpx;
+  width: 692rpx;
+  margin: 20rpx auto;
+  padding-bottom: 100rpx;
+}
+
+.title {
+  font-size: 32rpx;
+  text-align: center;
+  color: rgb(74, 45, 17);
+  font-weight: 600;
+  line-height: 120rpx;
+}
+
+.startAd {
+  padding: 0 40rpx;
+  height: 60rpx;
+}
+
+button {
+  margin-top: 60rpx;
+  background: linear-gradient(to right, rgb(224, 185, 99), rgb(198, 141, 18));
+  color: #fff;
+  font-size: 30rpx;
+  width: 65vw;
+}

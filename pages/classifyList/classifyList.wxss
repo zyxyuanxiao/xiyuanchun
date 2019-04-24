@@ -1,0 +1,91 @@
+/**index.wxss**/
+
+.bannerImg {
+  width: 100vw;
+}
+
+.head-banner {
+  background-color: #fff;
+  padding-bottom: 30rpx;
+}
+
+.ruzhu image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.shops-list {
+  background-color: #fff;
+  padding-top: 30rpx;
+  padding-bottom: 50rpx;
+  /* height: 100%; */
+}
+
+.shops-list .title {
+  line-height: 100rpx;
+  font-weight: 600;
+  color: rgb(51, 51, 51);
+  padding: 0 30rpx;
+  font-size: 28rpx;
+}
+
+.shopItem {
+  width: 338rpx;
+  box-shadow: 0 0 9rpx rgba(214, 214, 214, 0.5);
+  overflow: hidden;
+  border-radius: 10rpx;
+  margin-left: 26rpx;
+  margin-bottom: 20rpx;
+  padding-bottom: 30rpx;
+}
+
+.shopItem image {
+  width: 100%;
+  /* height: 300rpx; *//* max-height: 220rpx; */
+  border-radius: 10rpx;
+}
+
+.shopItem  .goods-title {
+  padding: 8rpx 20rpx 20rpx 20rpx;
+  /* height: 54rpx; */
+  color: rgb(51, 51, 51);
+  font-size: 24rpx;
+}
+
+.price-num {
+  color: #999;
+}
+
+.price-num .flex-row .old-price {
+  text-decoration: line-through;
+  margin-left: 10rpx;
+}
+
+.price-num .flex-row .now {
+  font-size: 34rpx;
+  color: rgb(255, 108, 0);
+}
+
+.user-entry {
+  margin-top: 20rpx;
+}
+
+.user-entry text {
+  color: rgb(102, 102, 102);
+  font-size: 24rpx;
+}
+
+.num {
+  font-size: 24rpx;
+  color: rgb(153, 153, 153);
+}
+
+.video {
+  margin-top: 20rpx;
+}
+
+.videoImg {
+  display: block;
+  width: 95vw;
+  margin: 0 auto;
+}

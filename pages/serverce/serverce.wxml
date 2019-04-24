@@ -1,0 +1,65 @@
+<view class="tabTit box">
+  <view class="flex1{{!tab[index]?' active':''}}" wx:for="{{tabTxt}}" wx:key="type" data-index="{{index}}" bindtap="filterTab">
+    <text>{{item}}</text>
+    <image src="/images/arrow.png"></image>
+  </view>
+</view>
+<!--筛选项-->
+<!-- 选择擅长的种类 -->
+<view class="tabLayer" hidden="{{tab[0]}}">
+  <text class="{{pinpai_id==0?'active':''}}" data-id="0" data-index="0" data-txt="品牌" bindtap="filter">不限</text>
+  <text class="{{pinpai_id==item.id?'active':''}}" wx:for="{{pinpaiList}}" wx:key="pp" wx:for-item="item" data-id="{{item.id}}" data-index="0" data-txt="{{item.name}}" bindtap="filter">{{item.name}}</text>
+</view>
+
+<!-- 选择调酒师的等级 -->
+<view class="tabLayer" hidden="{{tab[1]}}">
+  <text class="{{jiage_id==0?'active':''}}" data-id="0" data-index="1" data-txt="不限" bindtap="filter">不限</text>
+  <text class="{{jiage_id==1?'active':''}}" data-id="1" data-index="1" data-txt="高级技师" bindtap="filter">高级技师</text>
+  <text class="{{jiage_id==2?'active':''}}" data-id="2" data-index="1" data-txt="技师" bindtap="filter">技师</text>
+  <text class="{{jiage_id==3?'active':''}}" data-id="3" data-index="1" data-txt="高级调酒师" bindtap="filter">高级调酒师</text>
+  <text class="{{jiage_id==4?'active':''}}" data-id="4" data-index="1" data-txt="中级调酒师" bindtap="filter">中级调酒师</text>
+  <text class="{{jiage_id==5?'active':''}}" data-id="5" data-index="1" data-txt="初级调酒师" bindtap="filter">初级调酒师</text>
+</view>
+
+<!-- 选择好评 -->
+<view class="tabLayer" hidden="{{tab[2]}}">
+  <text class="{{xiaoliang_id==0?'active':''}}" data-id="0" data-index="2" data-txt="默认好评" bindtap="filter">默认好评</text>
+  <text class="{{xiaoliang_id==1?'active':''}}" data-id="1" data-index="2" data-txt="不限" bindtap="filter">不限</text>
+
+</view>
+
+
+
+<!-- 下面列表 -->
+<view class="container">
+
+  <view class='xiangqing flex-row flex-start' wx:for="{{details}}" data-sid='{{item.mid}}' wx:key="{{index}}" bindtap="navigateTo">
+    <view class='xiangqing_img'>
+      <image src='{{item.avatar}}' mode='widthFix'></image>
+    </view>
+    <view class='xiangqing_info'>
+      <view class='name-tag flex-row center'>
+        <text class='title'>{{item.realname}}</text>
+        <text class='degree zi' wx:if="{{item.degree==5}}">高级技师</text>
+        <text class='degree zi' wx:if="{{item.degree==4}}">技师</text>
+        <text class='degree zi' wx:if="{{item.degree==3}}">高级调酒师</text>
+        <text class='degree zi' wx:if="{{item.degree==2}}">中级调酒师</text>
+        <text class='degree zi' wx:if="{{item.degree==1}}">初级调酒师</text>
+
+        <text class='zi zis'>{{item.is_job==0?"空闲":"忙碌"}}</text>
+      </view>
+      <view class='prix'>
+        <text class='prix1'>￥{{item.degree*500}}</text>
+        <text>元/小时</text>
+        <text></text>
+      </view>
+      <view class='key text-flow'>
+        <text class='goodfor'>擅长:</text>
+        <text wx:if="{{item.sale_type_val !=''}}" wx:for="{{item.sale_type_val}}" wx:key="{{index}}" class='text{{index}}'>{{item}}</text>
+        <text class='text0' wx:if="{{item.sale_type_val ==''}}">调酒师比较懒，未填写</text>
+      </view>
+
+    </view>
+  </view>
+
+</view>

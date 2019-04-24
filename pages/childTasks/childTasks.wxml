@@ -1,0 +1,45 @@
+<!--pages/startTask/startTask.wxml-->
+<!-- <text>pages/startTask/startTask.wxml</text> -->
+<view class='container'>
+  <view class='shopsInfo kehuinfo'>
+    <view class='title'>订单详情</view>
+    <view class='detail'>
+      <view class='info'>订单编号：{{order.order_no}}</view>
+      <view class='info'>商品名称：{{order.title}}</view>
+      <view class='info'>商品数量：{{order.buy_number}}</view>
+      <view class='info'>收件人：{{order.receive_name}}</view>
+      <view class='info'>联系电话：{{order.receive_tel}}</view>
+      <view class='info'>收件地址：{{order.receive_address}}</view>
+    </view>
+  </view>
+  <view class='shopsInfo infos' wx:if="{{childOrder !=''}}">
+    <view class='title'>定制服务</view>
+    <block wx:for="{{childOrder}}" wx:key="{{index}}">
+      <view class='content contents'>
+        <view class='left-time'>
+          <view class='assess' data-serverId='{{item.server_mid}}' wx:if="{{item.task_status ==3 && item.confirm_status ==1}}" catchtap='toAssess'>去评价</view>
+          <view class='start-time'>
+            <view class='left flex-row center'>
+              <text>{{item.serverce_type_val}}</text>
+              <text class='status'>{{item.task_status_val}}</text>
+            </view>
+          </view>
+          <!-- 服务开始时间 -->
+          <view class='start'>接单时间:
+            <text>{{item.begin_time}}</text> </view>
+          <!-- 结束时间 -->
+          <view class='end' wx:if="{{item.task_status ==3}}">结束时间:
+            <text>{{item.end_time}}</text> </view>
+          <!-- 待支付 -->
+          <view class='pay' wx:if="{{item.pay_status ==1}}">待支付金额：
+            <text>￥{{item.pay_money}}</text>
+          </view>
+          <view class='toPay' data-childId='{{item.order_child_id}}' wx:if="{{item.task_status==3&&item.pay_status==1&&item.confirm_status==0}}" catchtap='toPay'>去支付</view>
+          <!-- 待确认 -->
+          <view class='sure' catchtap='confirmTasks' data-taskid='{{item.task_id}}' data-serverId='{{item.server_mid}}' wx:if="{{item.task_status ==3 && item.confirm_status ==0&&(item.pay_status ==''||item.pay_status==2)}}">确认</view>
+          <!-- 去评价-->
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

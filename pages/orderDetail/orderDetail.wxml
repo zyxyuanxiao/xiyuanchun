@@ -1,0 +1,19 @@
+<view class="map-inputtips-input">
+  <input bindinput="bindInput" placeholder="输入终点" value='{{backfill}}' />
+</view>
+<view class="map-search-list {{isShow ? '' : 'map-hide'}}">
+  <view bindtouchstart="backfill" data-index='{{index}}' wx:key="searchId" data-keywords="{{item.name}}" data-location="{{item.location}}" class="map-box" wx:for="{{suggestion}}">
+    {{item.title}}
+  </view>
+</view>
+
+<view class="map_box {{isShow ? 'map-hide' : ''}}">
+  <map id="navi_map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" include-points='{{points}}' markers="{{markers}}" polyline="{{polyline}}"></map>
+</view>
+
+<view class="text_box">
+  <view class="text">路程：{{distance}}米</view>
+  <view class="text">耗时：{{cost}}分钟</view>
+  <view class="detail_button" bindtouchstart="goDetail">{{status==3?"开始任务":""}}</view>
+  <view class="detail_button" bindtouchstart="endTask">{{status==4?"结束任务":""}}</view>
+</view>

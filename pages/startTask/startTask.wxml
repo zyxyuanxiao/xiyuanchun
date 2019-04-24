@@ -1,0 +1,45 @@
+<!--pages/startTask/startTask.wxml-->
+<!-- <text>pages/startTask/startTask.wxml</text> -->
+<view class='container'>
+  <block wx:for="{{orderList}}" wx:key="{{item.id}}">
+    <view class='shopsInfo kehuinfo'>
+      <view class='title'>客户信息</view>
+      <view class='detail'>
+        <view class='info'>客户姓名：
+          <text>{{item.receive_name}}</text>
+        </view>
+        <view class='info'>预约时间：
+          <text>{{item.expect_time}}</text>
+        </view>
+        <view class='info'>联系电话：
+          <text>{{item.receive_tel}}</text>
+        </view>
+        <view class='info'>预约地点：
+          <text>{{item.address||item.receive_address}}</text>
+        </view>
+        <view class='info'>预约状态：
+          <text wx:if="{{item.status_number ==3}}" class='status'>{{item.status_val}}</text>
+          <text wx:if="{{item.status_number ==4}}" class='status2'>{{item.status_val}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='shopsInfo'>
+      <view class='title'>{{type ==3?"专服服务":"调酒师服务"}}</view>
+      <view class='content flex-row center between'>
+        <view class='left-time'>
+          <view class='start-time'>
+            开始时间:
+            <text>{{startTime||item.begin_time}}</text>
+          </view>
+          <view class='end-time'>
+            现在时间:
+            <text>{{nowTimes}}</text>
+          </view>
+        </view>
+        <view class='money'>￥{{nowPrice}}</view>
+      </view>
+    </view>
+  </block>
+  <view class='operation' wx:if="{{buttStatus ==false}}" data-type='start' catchtap='startTask'>开始任务</view>
+  <view class='operation' wx:else data-type='end' catchtap='startTask' hidden='{{hidden?"hidden":""}}'>结束任务</view>
+</view>

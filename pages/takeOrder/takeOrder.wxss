@@ -1,0 +1,215 @@
+/* pages/takeOrder/takeOrder.wxss */
+
+.container {
+  background-color: #f7f7f7;
+}
+
+.item {
+  background-color: #fff;
+  margin-top: 20rpx;
+  padding: 20rpx 30rpx 20rpx 20rpx;
+}
+
+.item .left {
+}
+
+.item .left image {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 10rpx;
+}
+
+.right picker, .right view {
+  width: 20vw;
+  text-align: right;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.right  text {
+  color: #999;
+  opacity: 0.8;
+}
+
+.left input {
+  max-width: 50vw;
+  width: 60vw;
+}
+
+.pay-area {
+  position: fixed;
+  height: 100rpx;
+  line-height: 100rpx;
+  width: 100vw;
+  bottom: 0;
+  left: 0;
+}
+
+.pay-area view {
+  width: 50vw;
+  height: 100rpx;
+  text-align: center;
+  background-color: #fff;
+}
+
+.pay-area .price {
+  color: rgb(255, 108, 0);
+  font-size: 32rpx;
+}
+
+.pay-area .pay {
+  background: linear-gradient(to right, rgb(224, 185, 99), rgb(198, 141, 18));
+  color: #fff;
+  font-size: 30rpx;
+}
+
+.serviceList {
+  padding: 100rpx 0;
+  background-color: #fff;
+}
+
+.other-service .title {
+  font-size: 32rpx;
+  text-align: center;
+  color: rgb(74, 45, 17);
+  font-weight: 600;
+  line-height: 120rpx;
+}
+
+.other-service .serviceItem {
+  border: 1rpx solid rgb(204, 204, 204);
+  border-radius: 10rpx;
+  background-color: #fff;
+  padding: 10rpx 30rpx 10rpx 10rpx;
+  font-size: 28rpx;
+}
+
+.other-service .select {
+  background-color: rgb(255, 247, 227);
+  color: rgb(51, 51, 51);
+  border-color: rgb(255, 198, 81);
+}
+
+.other-service .serviceItem image {
+  width: 44rpx;
+}
+
+.notice {
+  padding: 20rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+
+page {
+  position: relative;
+}
+
+.cancel {
+  width: 60rpx;
+  position: fixed;
+  top: 210rpx;
+  right: 10rpx;
+}
+
+.startAd {
+  padding: 0 40rpx;
+  height: 60rpx;
+}
+
+.tiaojiushi, .daijia {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  top: 0;
+  left: 0;
+  z-index: 9;
+}
+
+.hide .content {
+  width: 80vw;
+  height: 500rpx;
+  position: absolute;
+  left: 50%;
+  margin-left: -40vw;
+  background: #fff;
+  border-radius: 10rpx;
+  opacity: 0;
+  bottom: -200rpx;
+  transition: all 0.3s cubic-bezier(0.4, 0.68, 0.15, 1.21) 0.5s;
+  -o-transition: all 0.3s cubic-bezier(0.4, 0.68, 0.15, 1.21) 0.5s;
+  -moz-transition: all 0.3s cubic-bezier(0.4, 0.68, 0.15, 1.21) 0.5s;
+  -webkit-transition: all 0.3s cubic-bezier(0.4, 0.68, 0.15, 1.21) 0.5s;
+  z-index: 99;
+}
+
+.show .content {
+  opacity: 1;
+  bottom: 436rpx;
+  z-index: 100;
+}
+
+.djs-content {
+  padding: 20rpx;
+}
+
+.djs-content .title {
+  font-size: 28rpx;
+  color: #666;
+  text-align: center;
+  margin-bottom: 50rpx;
+}
+
+.djs-content button {
+  margin-top: 60rpx;
+  background: linear-gradient(to right, rgb(224, 185, 99), rgb(198, 141, 18));
+  color: #fff;
+  font-size: 30rpx;
+  width: 65vw;
+}
+
+.tiaojiushi .title {
+  font-size: 28rpx;
+  color: #666;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+
+.tiaojiushi .content {
+  padding-top: 30rpx;
+}
+
+.tiaojiushi .radio-group .Item {
+  padding: 20rpx 30rpx;
+  border-bottom: 1rpx solid #f7f7f7;
+}
+
+.tiaojiushi .radio-group .left {
+}
+
+.tiaojiushi .radio-group .left image {
+  width: 100rpx;
+  margin-right: 20rpx;
+}
+
+.tiaojiushi .radio-group .left .info-name {
+  color: #666;
+  font-size: 26rpx;
+  line-height: 50rpx;
+}
+
+.tiaojiushi .radio-group .right {
+  color: #4a94ff;
+}
+
+.tiaojiushi .radio-group .right .price {
+  margin-right: 20rpx;
+}
+
+.tiaojiushi .nextButton {
+  margin-top: 60rpx;
+  background: linear-gradient(to right, rgb(224, 185, 99), rgb(198, 141, 18));
+  color: #fff;
+  font-size: 30rpx;
+  width: 65vw;
+}

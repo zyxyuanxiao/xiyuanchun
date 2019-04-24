@@ -1,0 +1,10 @@
+<map id="map" longitude="{{lng}}" latitude='{{lat}}' scale="14" include-points="{{markers}}" markers="{{markers}}" bindmarkertap="showModal" data-id="{{markers}}" polyline="{{polyline}}" bindregionchange="" show-location style="width: 100%; height: 100%;">
+
+
+  <cover-view class='index_bt1 flex-row center between'>
+    <cover-view>{{text}}</cover-view>
+    <!-- <cover-view class='cancel' bindtap='showDetail' wx:if="{{textStatus == true}}">
+      查看详情
+    </cover-view> -->
+  </cover-view>
+</map>

@@ -1,0 +1,21 @@
+<view class='shops-list'>
+  <!-- <view class='title'>推荐商品</view> -->
+  <scroll-view scroll-y>
+    <view class='shop-card flex-row  wrap'>
+      <block wx:for="{{goodsList}}" wx:key="{{item.id}}">
+        <view class='shopItem flex-column between' catchtap='navToGoodsDetail' data-shop_id='{{item.shop_id}}' data-id='{{item.id}}'>
+          <image src='{{item.images}}' mode='widthFix'></image>
+          <view class='info'>
+            <view class='goods-title text-flow'>{{item.title}}</view>
+            <view class='price-num flex-row  between center pad20'>
+              <view class='flex-row'>
+                <text class='now'>¥{{item.price}}</text>
+              </view>
+              <view class='num'>{{item.sales_count}}人购买</view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+</view>

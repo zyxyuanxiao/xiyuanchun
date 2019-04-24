@@ -1,0 +1,257 @@
+/* pages/buyconfirm/buyconfirm.wxss */
+
+.container {
+  background-color: #f7f7f7;
+  /* height: 100%; */
+  padding-top: 1rpx;
+  padding-bottom: 180rpx;
+}
+
+.location, .orderItem, .daijia, .tjs, .zf {
+  width: 710rpx;
+  padding: 20rpx 20rpx 30rpx 20rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  margin: 20rpx auto;
+}
+
+.location .left view {
+  font-size: 28rpx;
+  color: rgb(19, 19, 19);
+  line-height: 50rpx;
+}
+
+.location .left image {
+  width: 59rpx;
+  margin-right: 20rpx;
+}
+
+.location .left view .name {
+  font-size: 28rpx;
+  color: rgb(19, 19, 19);
+}
+
+.location .left view .phone {
+  font-size: 22rpx;
+  color: rgb(136, 136, 136);
+  margin-left: 10rpx;
+}
+
+.right {
+  width: 20rpx;
+}
+
+.orderItem .Item {
+  padding: 20rpx 0;
+  border-bottom: 1rpx dashed #f7f7f7;
+}
+
+.orderItem .Item image {
+  width: 162rpx;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+  height: 162rpx;
+}
+
+.orderItem .Item .info {
+  display: flex;
+  flex-direction: column;
+  height: 158rpx;
+}
+
+.orderItem .Item .info view {
+  /* align-self: baseline; */
+  margin-bottom: 28rpx;
+}
+
+.orderItem .Item .info view:last-child {
+  margin: 0;
+}
+
+.orderItem .Item .info .title {
+  font-size: 28rpx;
+  color: rgb(52, 52, 52);
+}
+
+.orderItem .Item .info .num {
+  font-size: 24rpx;
+  color: rgb(153, 153, 153);
+}
+
+.orderItem .Item .info .price {
+  font-size: 26rpx;
+  color: rgb(243, 153, 0);
+}
+
+.other .head image {
+  width: 35rpx;
+  height: 35rpx;
+  margin-right: 15rpx;
+}
+
+.other .head text {
+  font-size: 28rpx;
+  color: rgb(6, 6, 6);
+}
+
+.toPay {
+  height: 100rpx;
+  background-color: #fff;
+  padding: 0 20rpx;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100vw;
+}
+
+.toPay .pay {
+  width: 176rpx;
+  text-align: center;
+  height: 70rpx;
+  font-size: 28rpx;
+  border-radius: 35rpx;
+  background-color: rgb(253, 144, 0);
+  line-height: 70rpx;
+  color: #fff;
+  margin-left: 30rpx;
+  margin: 0;
+}
+
+.price {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.price text {
+  font-size: 28rpx;
+  color: rgb(255, 84, 0);
+}
+
+.other .info {
+  padding: 10rpx 0;
+}
+
+.djs-content {
+  padding: 20rpx;
+}
+
+.djs-content .title {
+  font-size: 28rpx;
+  color: #666;
+  text-align: center;
+  margin-bottom: 50rpx;
+}
+
+.djs-content .startTime {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background-color: #4a94ff;
+  margin-right: 15rpx;
+}
+
+.djs-content .startLoca {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background-color: #d8995b;
+  margin-right: 15rpx;
+}
+
+.djs-content .endLoca {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background-color: #01c0a1;
+  margin-right: 15rpx;
+}
+
+.djs-content .startAd {
+  height: 80rpx;
+}
+
+.tiaojiushi .startTime {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background-color: #4a94ff;
+  margin-right: 15rpx;
+}
+
+.djs-content button {
+  margin-top: 60rpx;
+  background: linear-gradient(to right, rgb(224, 185, 99), rgb(198, 141, 18));
+  color: #fff;
+  font-size: 30rpx;
+  width: 65vw;
+}
+
+.djs-content .content {
+  padding: 0 50rpx;
+}
+
+.tiaojiushi .title {
+  font-size: 28rpx;
+  color: #666;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+
+.tiaojiushi .content {
+  padding-top: 30rpx;
+}
+
+.tiaojiushi .radio-group .Item {
+  padding: 20rpx 0rpx;
+  border-bottom: 1rpx solid #f7f7f7;
+}
+
+.tiaojiushi .radio-group .left {
+}
+
+.tiaojiushi .radio-group .left image {
+  width: 100rpx;
+  margin-right: 20rpx;
+}
+
+.tiaojiushi .radio-group .left .info-name {
+  color: #666;
+  font-size: 26rpx;
+  line-height: 50rpx;
+}
+
+.tiaojiushi .radio-group .rights {
+  color: #4a94ff;
+}
+
+.tiaojiushi .radio-group .rights .price {
+  margin-right: 20rpx;
+  color: #e33333;
+}
+
+.tiaojiushi .nextButton {
+  margin-top: 60rpx;
+  background: linear-gradient(to right, rgb(224, 185, 99), rgb(198, 141, 18));
+  color: #fff;
+  font-size: 30rpx;
+  width: 65vw;
+}
+
+.daijia input, .tjs input, .zf input {
+  color: #777;
+  width: 70vw;
+}
+
+.tjs .content {
+  /* width: 710rpx; */
+  padding: 0rpx 20rpx 30rpx 50rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  margin: 20rpx auto;
+}
+
+.no-tjs {
+  text-align: center;
+  font-size: 26rpx;
+  color: #01c0a1;
+}

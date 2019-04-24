@@ -1,0 +1,49 @@
+/* pages/login/login.wxss */
+
+.container {
+  background-color: #fff;
+  padding-top: 1rpx;
+  text-align: center;
+}
+
+image {
+  width: 160rpx;
+  display: block;
+  margin: 60rpx auto 10rpx;
+  box-shadow: 0 0 10rpx #f7f7f7;
+}
+
+.cir {
+  display: inline-block;
+  width: 20rpx;
+  height: 20rpx;
+  background-color: #999;
+  border-radius: 50%;
+}
+
+.login-btn {
+  background-color: rgb(73, 184, 133);
+  color: #fff;
+  width: 80vw;
+  font-size: 28rpx;
+  border-radius: 40rpx;
+  margin-top: 40rpx;
+}
+
+.notice {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 40rpx;
+  border-top: 1rpx solid #ddd;
+  padding-top: 40rpx;
+  margin-top: 100rpx;
+}
+
+.notice .notice_1 {
+  color: #999;
+}
+
+.title {
+  color: #333;
+  margin-top: 10rpx;
+}

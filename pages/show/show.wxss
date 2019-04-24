@@ -1,0 +1,50 @@
+/* pages/show/show.wxss */
+
+.container {
+  padding: 0 28rpx 30rpx 28rpx;
+}
+
+.img-star {
+  width: 28rpx;
+}
+
+.title {
+  color: rgb(74, 45, 17);
+  font-size: 32rpx;
+  font-weight: 600;
+  text-align: center;
+  /* width: 100vw; */
+  line-height: 120rpx;
+}
+
+.showItem {
+  background-color: #fff;
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin-bottom: 40rpx;
+}
+
+.showItem .cover {
+  /* width: 694rpx; */
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.name {
+  font-size: 32rpx;
+  color: rgb(51, 51, 51);
+  line-height: 100rpx;
+  padding-left: 20rpx;
+}
+
+.assess, .work, .price {
+  color: rgb(51, 51, 51);
+  font-size: 28rpx;
+  padding-left: 20rpx;
+  margin-bottom: 10rpx;
+}
+
+.price text {
+  color: rgb(255, 48, 0);
+}

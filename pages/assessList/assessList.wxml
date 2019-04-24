@@ -1,0 +1,38 @@
+<!--pages/shopDetail/assessList/assessList.wxml-->
+<view class="grace-padding" wx:if="{{assessList.length !=0}}">
+  <!-- 评论区 start -->
+  <view class="grace-comment">
+    <block wx:for="{{assessList}}" wx:key="{{item.id}}">
+      <view class="grace-comment-list">
+        <view class="grace-comment-face">
+          <image src="{{item.avatar}}" mode="widthFix"></image>
+        </view>
+        <view class="grace-comment-body">
+          <view class="grace-comment-top">
+            <text>{{item.nickname}}</text>
+            <view class="grace-iconfont icon-zan">
+              <block wx:for="{{item.content_score}}" wx:for-item="star" wx:key="{{index}}">
+                <image class='img-star' src='/images/show/star.png' mode='widthFix'></image>
+              </block>
+              <block wx:for="{{5-item.content_score}}" wx:for-item="star" wx:key="{{index}}">
+                <image class='img-star' src='/images/show/no.png' mode='widthFix'></image>
+              </block>
+            </view>
+          </view>
+          <view class="grace-comment-date">
+            <text>{{item.create_time}}</text>
+            <!-- <text>102</text> -->
+          </view>
+          <view class="grace-comment-content">{{item.content||'默认好评'}}</view>
+        </view>
+      </view>
+    </block>
+
+  </view>
+  <!-- 评论区 end -->
+</view>
+<!-- 没有数据部分  -->
+<view class='no-data' wx:if="{{assessList==''}}">
+  <image src='/images/no-data.png' mode='widthFix'></image>
+  <text>还没有评价</text>
+</view>

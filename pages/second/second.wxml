@@ -1,0 +1,119 @@
+<view class='second'>
+  <view class='form-wrap'>
+    <form report-submit bindsubmit='submit'>
+      <view class='form-item'>
+        <view class='form-group'>
+          <label class='label-control'>
+            <view class='label-text'>姓名</view>
+            <input class='input-control' name="name" placeholder='请输入姓名' value='{{list.realname}}'></input>
+          </label>
+          <label class='label-control'>
+            <view class='label-text'>手机号</view>
+            <input class='input-control' type='number' name="phone" placeholder='请输入手机号' value='{{list.tel}}'></input>
+          </label>
+          <label class='label-control'>
+            <view class='label-text'>地址</view>
+            <view class='address'>
+              <input catchtap='getLocation' class='input-control' disabled name="address" value='{{list.address||address}}' placeholder='请输入地址'></input>
+            </view>
+          </label>
+          <label class='label-control'>
+            <view class='label-text'>身份证</view>
+            <input class='input-control' value='{{list.idcard}}' type='idcard' maxlength='18' name="idcard" placeholder='请输入身份证'></input>
+          </label>
+          <label class='label-control' wx:if="{{select==2}}">
+            <view class='label-text'>资格等级</view>
+            <picker class='input-control' bindchange="bindNumChange" value="{{index}}" range="{{degreeArr}}">
+              <text>{{degree[list.degree||dIndex].type}}</text>
+            </picker>
+          </label>
+          <label class='label-control flex-row center between' wx:if="{{infos.is_free == 0}}">
+            <view class='label-text'>服装费用</view>
+            <text>{{infos.deposit}}元</text>
+          </label>
+          <label class='label-control'>
+            <view class='label-text'>身高(cm)</view>
+            <input class='input-control' maxlength='5' type='number' name="height" placeholder='请输入身高(cm)' value='{{list.height}}'></input>
+          </label>
+          <label class='label-control'>
+            <view class='label-text'>体重(kg)</view>
+            <input class='input-control' type='number' maxlength='5' name="weight" placeholder='请输入体重(kg)' value='{{list.weight}}'></input>
+          </label>
+          <label class='label-control flex-row center between'>
+            <view class='label-text'>收货地址</view>
+            <input bindinput='address2' class='input-control' name="address2" value='{{list.address2||address2}}' placeholder='请输入服装的收货地址'></input>
+          </label>
+        </view>
+      </view>
+      <view class='goodFor flex-column pad20' wx:if="{{select==2}}">
+        <view class='name'>特长</view>
+        <view class='List'>
+          <checkbox-group  bindchange="checkboxChange">
+            <label class="classType" wx:for="{{classType}}" wx:key="{{item.id}}">
+              <checkbox value="{{item.id}}" checked="{{item.checked}}" /> {{item.name}}
+            </label>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='form-item deposit'>
+        <view class='form-group'>
+          <label class='label-controls upload'>
+            <view class='upLoadId' data-type='ID_first' catchtap='uploadImg'>
+              <view class='add-img'>
+                <image class='upload-img' name='ID_first' src='{{ID_first}}' wx:if="{{ID_first !=''}}"></image>
+                <image class='upload-img' src='/images/user/upload.png' wx:else></image>
+              </view>
+              <view class='label-text'>身份证正面</view>
+            </view>
+
+            <view class='upLoadId' data-type='ID_second' catchtap='uploadImg'>
+              <view class='add-img'>
+                <image class='upload-img' name='ID_second' src='{{ID_second}}' wx:if="{{ID_second !=''}}"></image>
+                <image class='upload-img' src='/images/user/upload.png' wx:else></image>
+              </view>
+              <view class='label-text'>身份证反面</view>
+            </view>
+          </label>
+
+          <label class='label-controls upload jz' wx:if="{{select==1}}">
+            <view class='uploadJz' data-type='zz' catchtap='uploadImg'>
+              <view class='add-img'>
+                <image class='upload-img' name='zz' src='{{zz}}' wx:if="{{zz !='' ||list.type==1}} "></image>
+                <!-- <image class='upload-img' src='/images/user/upload.png' wx:else></image> -->
+              </view>
+              <view class='label-text'>驾驶证正面</view>
+            </view>
+            <view class='uploadJz' data-type='zf' catchtap='uploadImg'>
+              <view class='add-img'>
+                <image class='upload-img' name='zf' src='{{zf}}' wx:if="{{zf!='' ||list.type==1}} "></image>
+                <!-- <image class='upload-img' src='/images/user/upload.png' wx:else></image> -->
+              </view>
+              <view class='label-text'>驾驶证反面</view>
+            </view>
+          </label>
+
+          <label class='label-controls upload' wx:if="{{select==2}}">
+            <view class='uploadJz' data-type='zg' catchtap='uploadImg'>
+              <view class='add-img'>
+                <image class='upload-img' name='zg' src='{{zg}}' wx:if="{{zg!='' ||list.type==2}} "></image>
+                <image class='upload-img' src='/images/user/upload.png' wx:else></image>
+              </view>
+              <view class='label-text'>资质照片</view>
+            </view>
+          </label>
+          <label class='label-controls upload' wx:if="{{select==3}}">
+            <view class='uploadJz' data-type='sy' catchtap='uploadImg'>
+              <view class='add-img'>
+                <image class='upload-img' name='sy' src='{{sy}}' wx:if="{{sy!='' ||list.type==3}} "></image>
+                <!-- <image class='upload-img' src='/images/user/upload.png' wx:else></image> -->
+              </view>
+              <view class='label-text'>素颜照片</view>
+            </view>
+            <text class='notices-photo'>请上传淡妆正面全身照</text>
+          </label>
+        </view>
+      </view>
+      <button form-type='submit' type='primary' wx:if="{{btnStatus ==hiden}}">提交申请</button>
+    </form>
+  </view>
+</view>

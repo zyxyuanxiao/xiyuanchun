@@ -1,0 +1,26 @@
+<view class="main">
+  <scroll-view class="menu-left" scroll-y scroll-with-animation="{{true}}">
+    <view class="cate-list {{curIndex==index?'on':''}}" wx:for="{{menu}}" wx:key="{{item.fid}}" data-id="{{item.fid}}" data-index="{{index}}" bindtap="switchCategory">
+      <text>{{item}}</text>
+    </view>
+  </scroll-view>
+  <swiper vertical="true" class="menu-right" current="{{toView}}" data-id="{{item.fid}}" bindchange='getIndex'>
+    <block wx:for="{{allData}}" wx:key="{{index}}">
+      <swiper-item>
+        <scroll-view class="cate-box" id="{{item.id}}" scroll-y>
+          <view class="cate-product flex-row wrap">
+            <!-- <block wx:for="{{goods}}" wx:key="{{index}}" wx:if="{{goods.length !=0}}"> -->
+            <view class="product-list flex-column between center" bindtap="productDetails" wx:for="{{goods}}" wx:key="{{index}}" data-shop_id='{{product.shop_id}}' wx:for-item="product" data-id='{{product.id}}'>
+              <image src="{{product.images}}" mode='widthFix'></image>
+              <view class="product-list-name text-flow">
+                {{product.title}}
+              </view>
+            </view>
+            <!-- </block> -->
+          </view>
+          <view class='no-goods' wx:if="{{goods.length ==0}}">商家未添加商品</view>
+        </scroll-view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>

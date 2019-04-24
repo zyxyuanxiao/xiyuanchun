@@ -1,0 +1,11 @@
+<!--pages/login/login.wxml-->
+<view class='container'>
+  <image src='/images/logo.jpg' mode='widthFix'></image>
+  <text class='title'>溪缘春酒业</text>
+  <view class='notice'>
+    <view>为了您更好的体验，请确认授权以下信息</view>
+    <view class='notice_1'>
+      <text class='cir'></text> 获得您的公开信息（昵称，头像等） </view>
+  </view>
+  <button open-type='getUserInfo' class='login-btn' bindgetuserinfo="bindgetuserinfo">登录</button>
+</view>

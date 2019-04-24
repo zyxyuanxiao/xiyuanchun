@@ -1,0 +1,26 @@
+/* pages/feedback/feedback.wxss */
+
+.container {
+  padding: 0 20rpx;
+  overflow: hidden;
+}
+
+textarea {
+  height: 300rpx;
+  border-radius: 10rpx;
+  color: #999;
+  padding: 20rpx;
+  background-color: #fff;
+  width: 89vw;
+  margin: 20rpx auto 50rpx;
+}
+
+button {
+  background: linear-gradient(to right, rgb(224, 185, 99), rgb(198, 141, 18));
+  color: #fff;
+  border: none;
+}
+button::after {
+  outline: none;
+  border: none;
+}

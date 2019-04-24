@@ -1,0 +1,395 @@
+page {
+  height: 100%;
+  width: 100%;
+  background: #f4f4f4;
+}
+
+.orders {
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+}
+
+.order {
+  margin-top: 20rpx;
+  /* background: #fff; */
+}
+
+.order .h {
+  height: 83.3rpx;
+  line-height: 83.3rpx;
+  margin-left: 31.25rpx;
+  padding-right: 31.25rpx;
+  border-bottom: 1px solid #f4f4f4;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.order .h .l {
+  float: left;
+}
+
+.order .h .r {
+  float: right;
+  color: #b4282d;
+  font-size: 24rpx;
+}
+
+.order .goods {
+  display: flex;
+  align-items: center;
+  height: 199rpx;
+  margin-left: 31.25rpx;
+}
+
+.order .goods .img {
+  height: 145.83rpx;
+  width: 145.83rpx;
+  background: #f4f4f4;
+}
+
+.order .goods .img image {
+  height: 145.83rpx;
+  width: 145.83rpx;
+}
+
+.order .goods .info {
+  height: 145.83rpx;
+  flex: 1;
+  padding-left: 20rpx;
+}
+
+.order .goods .name {
+  margin-top: 30rpx;
+  display: block;
+  height: 44rpx;
+  line-height: 44rpx;
+  color: #333;
+  font-size: 30rpx;
+}
+
+.order .goods .number {
+  display: block;
+  height: 37rpx;
+  line-height: 37rpx;
+  color: #666;
+  font-size: 25rpx;
+}
+
+.order .goods .status {
+  width: 105rpx;
+  color: #b4282d;
+  font-size: 25rpx;
+}
+
+.order .b {
+  height: 103rpx;
+  line-height: 103rpx;
+  margin-left: 31.25rpx;
+  padding-right: 31.25rpx;
+  border-top: 1px solid #f4f4f4;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.order .b .l {
+  float: left;
+}
+
+.order .b .r {
+  float: right;
+}
+
+.order .b .btn {
+  margin-top: 19rpx;
+  height: 64.5rpx;
+  line-height: 64.5rpx;
+  text-align: center;
+  padding: 0 20rpx;
+  border-radius: 5rpx;
+  font-size: 28rpx;
+  color: #fff;
+  background: #b4282d;
+}
+
+/* pages/job/jobList/jobList.wxss */
+
+.tab-content {
+  background-color: #fff;
+}
+
+.jobList {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.head-nav .tab-h {
+  width: 100vw;
+  height: 90rpx;
+  display: block;
+  background-color: #fff;
+  border-top: 1rpx solid #eee;
+  border-bottom: 1rpx solid #eee;
+}
+
+.head-nav .tab-h .tab-item {
+  display: inline-block;
+  width: 180rpx;
+  height: 90rpx;
+  line-height: 86rpx;
+  text-align: center;
+  color: #666;
+  font-size: 30rpx;
+  border-bottom: 2rpx solid transparent;
+}
+
+.head-nav .tab-h .active {
+  border-bottom: 4rpx solid #d8995b;
+  color: #d8995b;
+}
+
+.scoll-h {
+  background-color: #f0f1f3;
+  height: 92vh;
+  padding-top: 1rpx;
+}
+
+.appointment-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30rpx;
+  padding-left: 30rpx;
+  background-color: #fff;
+  height: 190rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.appointment-card .status {
+  width: 60rpx;
+}
+
+.card-left {
+  display: flex;
+  /* align-items: center; */
+}
+
+.hosptial-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+  position: relative;
+}
+
+.hosptial-info .name {
+  color: #333;
+  font-size: 33rpx;
+}
+
+.hosptial-info .title {
+  color: #666;
+  font-size: 28rpx;
+  margin-top: 10rpx;
+}
+
+.hosptial-info .time {
+  color: #999;
+  font-size: 26rpx;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.card-left image {
+  width: 169rpx;
+  height: 144rpx;
+}
+
+.card-right {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: #cc953d;
+  font-size: 28rpx;
+}
+
+.card-right image {
+  display: block;
+  margin: 0 auto;
+}
+
+.no-data {
+  /* height: 500rpx; *//* background-color: #fff; */
+  text-align: center;
+  padding-top: 1rpx;
+}
+
+.no-data  image {
+  display: block;
+  width: 179rpx;
+  height: 228rpx;
+  margin: 100rpx auto 0;
+}
+
+.no-data  text {
+  display: inline-block;
+  font-size: 28rpx;
+  color: #666;
+  margin-top: 30rpx;
+}
+
+.shopsInfo {
+  width: 698rpx;
+  margin: 0 auto;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  border-radius: 10rpx;
+  padding-bottom: 50rpx;
+}
+
+.kehuinfo {
+  border-top: 1rpx solid #f7f7f7;
+}
+
+.shopsInfo .title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: rgb(51, 51, 51);
+  line-height: 80rpx;
+  border-bottom: 1rpx solid rgba(230, 230, 230, 0.3);
+  padding-left: 20rpx;
+}
+
+.kehuinfo .detail {
+  padding: 20rpx 20rpx 30rpx 20rpx;
+}
+
+.kehuinfo .detail .info {
+  font-size: 28rpx;
+  color: #999;
+  line-height: 50rpx;
+}
+
+.kehuinfo .detail .info text {
+  color: #666;
+}
+
+.kehuinfo .detail .info .status {
+  color: #cc953d;
+}
+
+.kehuinfo .detail .info .status2 {
+  color: #4a94ff;
+}
+
+.kehuinfo .detail .info .status3 {
+  color: #b4282d;
+}
+
+.kehuinfo .detail .info .status4 {
+  color: #01c0a1;
+}
+
+.shopsInfo .detail .left .img {
+  width: 100rpx;
+  height: 100rpx;
+  padding: 40rpx 20rpx;
+}
+
+.shopsInfo .detail .left .good-name {
+  font-size: 28rpx;
+  color: rgb(51, 51, 51);
+  line-height: 45rpx;
+}
+
+.shopsInfo .detail .left .num {
+  font-size: 24rpx;
+  color: rgb(153, 153, 153);
+  line-height: 45rpx;
+}
+
+.shopsInfo .detail .right {
+  font-size: 32rpx;
+  color: rgb(0, 0, 0);
+  padding-right: 20rpx;
+}
+
+.operation {
+  margin-top: 60rpx;
+}
+
+.operation .accept {
+  width: 326rpx;
+  height: 70rpx;
+  background: linear-gradient(to right, rgb(224, 175, 99), rgb(198, 141, 18));
+  color: #fff;
+  font-size: 28rpx;
+  border-radius: 70rpx;
+  text-align: center;
+  line-height: 70rpx;
+}
+
+.operation .refuse {
+  width: 326rpx;
+  height: 70rpx;
+  background: transparent;
+  color: rgb(228, 170, 51);
+  font-size: 28rpx;
+  border-radius: 70rpx;
+  text-align: center;
+  line-height: 70rpx;
+  border: 1rpx solid rgb(228, 170, 51);
+}
+
+.statuss {
+  color: #4a94ff;
+  float: right;
+}
+
+.topay {
+  background-color: #4a94ff;
+  width: 50vw;
+  height: 80rpx;
+  color: #fff;
+  font-size: 28rpx;
+  line-height: 80rpx;
+  opacity: 0.8;
+}
+
+.confirmTasks {
+  background-color: #d8995b;
+  width: 50vw;
+  height: 80rpx;
+  color: #fff;
+  font-size: 28rpx;
+  line-height: 80rpx;
+  opacity: 0.8;
+}
+
+.toAssess {
+  background-color: #01c0a1;
+  width: 50vw;
+  height: 80rpx;
+  color: #fff;
+  font-size: 28rpx;
+  line-height: 80rpx;
+  opacity: 0.8;
+}
+
+.cancel {
+  padding: 0rpx 10rpx;
+  background: #fff;
+  opacity: 0.8;
+  color: #a02203;
+  border-radius: 8rpx;
+  font-size: 26rpx;
+  line-height: 60rpx;
+  height: 60rpx;
+  border: 1rpx solid #a02203;
+  width: 200rpx;
+  text-align: center;
+  margin: 0 auto 20rpx auto;
+}

@@ -1,0 +1,109 @@
+/* pages/shopDetail/assessList/assessList.wxss */
+
+view {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 28rpx;
+  width: 100%;
+  height: auto;
+  align-items: flex-start;
+}
+
+.grace-padding {
+  /* padding:0 20rpx; */
+  width: 100%;
+}
+
+.grace-comment {
+  /* padding: 5rpx 0; */
+  display: inline-block !important;
+}
+
+.grace-iconfont {
+  float: right;
+  display: block;
+  width: 200rpx;
+  text-align: right;
+}
+
+.grace-iconfont image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 10rpx;
+  opacity: 0.6;
+}
+
+.grace-comment-list {
+  flex-wrap: nowrap;
+  padding: 10rpx 20rpx;
+  /* margin: 10rpx 0; */
+  border-bottom: 1rpx solid #f3f7fa;
+  background-color: #fff;
+}
+
+.grace-comment-face {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 100%;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.grace-comment-face image {
+  width: 100%;
+  border-radius: 100%;
+}
+
+.grace-comment-body {
+  width: 100%;
+}
+
+.grace-comment-top {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 28rpx;
+  width: 100%;
+  height: auto;
+  line-height: 1.5em;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.grace-comment-top text {
+  color: #0a98d5;
+  font-size: 24rpx;
+}
+
+.grace-comment-top text:last-child {
+  color: #666;
+}
+
+.grace-comment-date {
+  line-height: 1.5em;
+  justify-content: space-between;
+}
+
+.grace-comment-date text {
+  color: #666;
+  font-size: 24rpx;
+}
+
+.grace-comment-content {
+  line-height: 1.6em;
+  font-size: 28rpx;
+  padding: 8rpx 0;
+}
+
+.grace-comment-zan {
+  color: #0a98d5 !important;
+}
+
+.grace-comment-replay-btn {
+  background: #f4f5f6;
+  font-size: 24rpx;
+  padding: 8rpx 15rpx;
+  border-radius: 30rpx;
+  color: #333 !important;
+  margin: 0 10rpx;
+}

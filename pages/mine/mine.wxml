@@ -1,0 +1,115 @@
+<!--pages/mine/mine.wxml-->
+<view class='container'>
+  <view class='header flex-row pad20 margin10-auto radius10'>
+    <image src='{{userInfo.avatarUrl}}' mode='widthFix'></image>
+    <view class='userInfo flex-column'>
+      <text class='name'>{{userInfo.nickName}}</text>
+      <text class='location'>编号：{{mid}}</text>
+    </view>
+  </view>
+  <view class='order margin20-auto radius10'>
+    <view class='all-order flex-row between pad20'>
+      <text>我的订单</text>
+      <view class='right' catchtap='navToNav' data-type='0'>全部订单
+        <image src='/images/right.png' class='rightIcon'></image>
+      </view>
+    </view>
+    <view class='orderEntry flex-row around'>
+      <view class='orderItem flex-column' catchtap='navToMyCart'>
+        <image src='/images/user/011.png' mode='widthFix'></image>
+        <text>购物车</text>
+      </view>
+      <view class='orderItem flex-column' catchtap='navToNav' data-type='0'>
+        <image src='/images/user/012.png' mode='widthFix'></image>
+        <text>待发货</text>
+      </view>
+      <view class='orderItem flex-column' catchtap='navToNav' data-type='1'>
+        <image src='/images/user/013.png' mode='widthFix'></image>
+        <text>待收货</text>
+      </view>
+      <view class='orderItem flex-column' catchtap='navToNav' data-type='2'>
+        <image src='/images/user/014.png' mode='widthFix'></image>
+        <text>待评价</text>
+      </view>
+      <!-- <view class='orderItem flex-column'>
+        <image src='/images/user/015.png' mode='widthFix'></image>
+        <text>退款/售后</text>
+      </view> -->
+    </view>
+  </view>
+  <view class='achievement flex-row center wrap' wx:if="{{type !=4}}">
+    <view class='my-order flex-row center' catchtap='navToMyorder'>
+      <image src='/images/user/021.png' mode='widthFix'></image>
+      <text>我的业务</text>
+      <text class='nums' wx:if='{{app.globalData.nums}}'>1</text>
+    </view>
+    <view class='my-order flex-row center' catchtap='navToMyAchieve'>
+      <image src='/images/user/022.png' mode='widthFix'></image>
+      <text>我的业绩</text>
+    </view>
+    <view class='my-order flex-row center' catchtap='navToAssessList'>
+      <image src='/images/user/023.png' mode='widthFix'></image>
+      <text>客户评价</text>
+    </view>
+    <view class='my-order flex-row center' catchtap='navToWallent'>
+      <image src='/images/user/wallent.png' mode='widthFix'></image>
+      <text>我的钱包</text>
+    </view>
+  </view>
+  <view class='other margin20-auto radius10'>
+    <!-- <view class='flex-row between' catchtap='navToApply' wx:if="{{type ==4}}"> -->
+    <view class='flex-row between' catchtap='navToApply'>
+      <view class='left'>
+        <image src='/images/user/030.png'></image>
+        <text>申请专服</text>
+      </view>
+      <image src='/images/right.png' class='rightIcon'></image>
+    </view>
+
+    <view class='flex-row between' catchtap='navToWallent' wx:if="{{type ==4}}">
+      <view class='left'>
+        <image src='/images/user/wallent.png'></image>
+        <text>我的钱包</text>
+      </view>
+      <image src='/images/right.png' class='rightIcon'></image>
+    </view>
+    <view class='flex-row between' catchtap='navToMySub'>
+      <view class='left'>
+        <image src='/images/user/036.png'></image>
+        <text>我的预约</text>
+      </view>
+      <image src='/images/right.png' class='rightIcon'></image>
+    </view>
+    <view class='flex-row between' catchtap='navToQuestion'>
+      <view class='left'>
+        <image src='/images/user/031.png'></image>
+        <text>常见问题</text>
+      </view>
+      <image src='/images/right.png' class='rightIcon'></image>
+    </view>
+
+    <view class='flex-row between'>
+      <button class='flex-row between contact center' open-type='contact'>
+        <view class='left'>
+          <image src='/images/user/032.png'></image>
+          <text>客服咨询</text>
+        </view>
+        <image src='/images/right.png' class='rightIcon'></image>
+      </button>
+    </view>
+    <view class='flex-row between' catchtap='navToFeedBack'>
+      <view class='left'>
+        <image src='/images/user/034.png'></image>
+        <text>问题反馈</text>
+      </view>
+      <image src='/images/right.png' class='rightIcon'></image>
+    </view>
+    <view class='flex-row between' catchtap='navToSetted' wx:if="{{type !=4}}">
+      <view class='left'>
+        <image src='/images/user/037.png'></image>
+        <text>设置</text>
+      </view>
+      <image src='/images/right.png' class='rightIcon'></image>
+    </view>
+  </view>
+</view>

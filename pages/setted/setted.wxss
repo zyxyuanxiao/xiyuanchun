@@ -1,0 +1,8 @@
+/* pages/setted/setted.wxss */
+
+.jiedan {
+  background: #fff;
+  padding: 10rpx 20rpx;
+  height: 100rpx;
+  color: #666;
+}

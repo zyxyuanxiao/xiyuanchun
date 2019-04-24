@@ -1,0 +1,62 @@
+<!--index.wxml-->
+<view class='container'>
+  <scroll-view scroll-y='true' scroll-with-animation='true'>
+    <view class='head-banner'>
+      <view class='head-bg'>
+        <swiper class='' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+          <block wx:for="{{data.banner}}" wx:key="index">
+            <swiper-item class="">
+              <image class='bannerImg' src="{{item}}" mode='widthFix' />
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+      <!-- 业主的快速导航 -->
+      <view class='user-entry flex-row around center pad30 mg20'>
+        <block wx:for="{{data.classify}}" wx:key='{{item.id}}'>
+          <view class='ruzhu flex-column center enter' data-id='{{item.id}}' data-title='{{item.name}}' catchtap='navToJoin'>
+            <image src='{{item.icon}}' mode='widthFix'></image>
+            <text>{{item.name}}</text>
+          </view>
+        </block>
+
+        <view class='ruzhu flex-column center  enter' catchtap='navToAbout'>
+          <image src='/images/index/04.png' mode='widthFix'></image>
+          <text>全部</text>
+        </view>
+      </view>
+
+      <view class='video' wx:if="{{video}}">
+        <image src='/images/index/video2.png' class='videoIcon' mode='widthFix' catchtap='showVideo'></image>
+        <image class='videoImg' src='/images/index/video.png' mode='widthFix'></image>
+      </view>
+      <view class='video' wx:else>
+        <video id="myVideo" src="{{data.banner_video}}" show-play-btn="true" controls bindended="showVideo"></video>
+      </view>
+
+    </view>
+    <view class='shops-list'>
+      <view class='title'>推荐商品</view>
+      <view class='shop-card flex-row  wrap'>
+        <block wx:for="{{goodsList}}" wx:key="{{item.id}}" wx:if="{{goodsList.length !=0}}">
+          <view class='shopItem flex-column between' catchtap='navToGoodsDetail' data-shop_id='{{item.shop_id}}' data-id='{{item.id}}'>
+            <image src='{{item.images}}' mode='widthFix'></image>
+            <view class='info'>
+              <view class='goods-title text-flow'>{{item.title}}</view>
+              <view class='price-num flex-row  between center pad20'>
+                <view class='flex-row'>
+                  <text class='now'>¥{{item.price}}</text>
+                  <!-- <text class='old-price' wx:if="{{item.min_price !=item.min_original_price}}">¥{{item.min_original_price}}</text> -->
+                </view>
+                <view class='num'>{{item.sales_count}}人购买</view>
+              </view>
+            </view>
+          </view>
+        </block>
+        <view class='no-shops' wx:if="{{goodsList.length ==0}}">
+          您的附近暂无经销商
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

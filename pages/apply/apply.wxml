@@ -1,0 +1,17 @@
+<!--pages/apply/apply.wxml-->
+<view class='first'>
+  <view class='item flex-row center between {{select==1?"active":""}} ' data-id='{{1}}' bindtap='select'>
+    <text>代驾司机</text>
+    <image src='/images/apply/dj.png' mode='widthFix' data-id='{{1}}' bindtap='select'></image>
+  </view>
+  <view class='item flex-row center between  {{select==2?"active":""}} ' data-id='{{2}}' bindtap='select'>
+    <text>调酒师</text>
+    <image src='/images/apply/tjs.png' mode='widthFix' data-id='{{2}}' bindtap='select'></image>
+  </view>
+  <view class='item flex-row center between {{select==3?"active":""}} ' data-id='{{3}}' bindtap='select'>
+    <text>专服人员</text>
+    <image src='/images/apply/zf.png' mode='widthFix' data-id='{{3}}' bindtap='select'></image>
+  </view>
+
+  <button class='next' catchtap='next'>下一步</button>
+</view>

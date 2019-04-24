@@ -1,0 +1,54 @@
+<!--pages/myWallet/myWallet.wxml-->
+<view class='container'>
+
+  <view class='account-num flex-column center'>
+    <text class='title'>账户余额</text>
+    <text class='num'>￥{{wallet.money}}</text>
+  </view>
+  <!-- <view class='head-bot flex-row center'>
+    <view class='all flex-column center'>
+      <text>总收入</text>
+      <text class='nums'>{{wallet.sum_price}}</text>
+    </view>
+    <view class='right flex-column center'>
+      <text>可提现</text>
+      <text class='nums'>{{wallet.apply_ok_price}}</text>
+    </view>
+  </view> -->
+  <view class='record pad30'>
+    资金记录
+  </view>
+  <scroll-view scroll-y class='scroll'>
+
+    <block wx:for="{{wallet.recorde}}" wx:key="index" wx:if="{{wallet.recorde.length !=0}}">
+      <view class='record-item flex-row center between pad30'>
+        <view class='left flex-column'>
+          <text class='name'>{{item.create_time}}</text>
+          <text class='time'>{{item.remark}}</text>
+        </view>
+        <view class='right flex-column'>
+          <text class='money'> {{item.type ==1?"+ ":"- "}}{{item.number}}</text>
+          <view class='remark'>
+            <text>{{item.w_status_val||"成功"}}</text>
+            <text wx:if="{{item.w_status == 3}}">{{item.w_remark}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+    <!-- <block wx:for="{{history}}" wx:key="index" >
+    <view class='record-item flex-row center between pad30' wx:if="{{history.length!=0}}">
+      <view class='left flex-column'>
+        <text class='name'>{{history.add_time}}</text>
+        <text class='time'>{{history.status_val}}</text>
+      </view>
+      <view class='right'>
+        {{history.withdrawal_amount}}
+      </view>
+    </view>
+  </block> -->
+    <view class='no-data' wx:if="{{history.length==0&&wallet.recorde.length ==0}}">
+      暂无提现纪录
+    </view>
+  </scroll-view>
+  <button class='withdraw' catchtap='{{phone !=0?"withdraw":""}}' bindgetphonenumber='{{phone !=0?"":"getPhoneNumber"}}' open-type='{{phone !=0?"":"getPhoneNumber"}}'>提现</button>
+</view>

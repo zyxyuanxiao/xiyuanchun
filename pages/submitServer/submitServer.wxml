@@ -1,0 +1,28 @@
+<!--pages/submitServer/submitServer.wxml-->
+<view class='container'>
+  <form bindsubmit='submitSub'>
+    <view class='content'>
+      <view class='title'>填写预约资料</view>
+      <view class='startAd flex-row center'>
+        <text>您的姓名：</text>
+        <input class='adInput' value='{{name}}' name="name" placeholder='请填写您的姓名'></input>
+      </view>
+      <view class='startAd flex-row center'>
+        <text>联系方式：</text>
+        <input class='adInput' value='{{phone}}' name="phone" placeholder='请填写联系电话'></input>
+      </view>
+      <view class='startAd flex-row center '>
+        <text>预约时间：</text>
+        <picker mode="time" value="{{time}}" start="09:01" end="23:59" bindchange="bindTjsTimeChange">
+          <input class='adInput' disabled value='{{time}}' name="startTime" placeholder='请选择服务时间 '></input>
+        </picker>
+      </view>
+      <view class='startAd flex-row center '>
+        <text>预约地点：</text>
+        <input class='adInput' disabled value='{{address}}' name="startAd" catchtap='chooseStart' placeholder='请选择服务地点 '></input>
+      </view>
+    </view>
+    <button form-type='submit'>提交申请</button>
+  </form>
+
+</view>

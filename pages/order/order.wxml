@@ -1,0 +1,158 @@
+<view class="containers">
+  <view class='my-appointment'>
+    <view class='head-nav'>
+      <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+        <!-- <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav">待付款</view> -->
+        <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav">待发货</view>
+        <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">待收货</view>
+        <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">已完成</view>
+        <view class="tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="swichNav">未完成</view>
+      </scroll-view>
+    </view>
+    <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:92vh">
+      <!-- 待发货 -->
+      <swiper-item wx:for="{{[0]}}" wx:key="">
+        <scroll-view scroll-y="true" class="scoll-h">
+          <view class="order" wx:for="{{orderList}}" wx:key="{{item.id}}" data-orderId='{{item.id}}' data-serverId='{{item.other_service}}'>
+            <view class="h">
+              <view class="l">订单编号：{{item.order_no}}</view>
+              <view class="r">{{item.remark||"待发货"}}</view>
+            </view>
+            <block wx:for="{{item.goods}}" wx:for-item="child" wx:key="{{child.index}}">
+              <view class="goods">
+                <view class="img">
+                  <image src="{{child.images}}"></image>
+                </view>
+                <view class="info">
+                  <text class="name">{{child.title}}</text>
+                  <text class="number">X {{child.buy_number}}</text>
+                  <text class="number">￥{{child.price}}</text>
+                  <!-- <view class='flex-row center'>
+                    <view class="status dj" wx:if="{{item.dj}}">代驾服务</view>
+                    <view class="status tjs " wx:if="{{item.tjs}}">调酒师服务</view>
+                    <view class="status ">专服配送</view>
+                  </view> -->
+                </view>
+                <!-- <view class="status"></view> -->
+              </view>
+            </block>
+            <view class="b flex-row center between" catchtap='cancel' data-order_id='{{item.id}}'>
+              <view class="l">实付：￥{{item.total_price}}</view>
+              <view class='cancel'>取消订单</view>
+            </view>
+          </view>
+          <!-- 没有数据部分  -->
+          <view class='no-data' wx:if="{{orderList==''}}">
+            <image src='/images/no-data.png'></image>
+            <text>你还没有相关订单</text>
+          </view>
+        </scroll-view>
+      </swiper-item>
+      <!-- 待收货 -->
+      <swiper-item wx:for="{{[1]}}" wx:key="">
+        <scroll-view scroll-y="true" class="scoll-h">
+          <view class="order" wx:for="{{orderList}}" wx:key="{{item.id}}" data-orderId='{{item.id}}'>
+            <view class="h">
+              <view class="l">订单编号：{{item.order_no}}</view>
+              <view class="r">{{item.remark||'已发货'}}</view>
+            </view>
+            <block wx:for="{{item.goods}}" wx:for-item="child" wx:key="{{child.index}}">
+              <view class="goods">
+                <view class="img">
+                  <image src="{{child.images}}"></image>
+                </view>
+                <view class="info">
+                  <text class="name">{{child.title}}</text>
+                  <text class="number">X {{child.buy_number}}</text>
+                  <text class="number">￥{{child.price}}</text>
+                </view>
+              </view>
+            </block>
+            <view class="b flex-row center between" catchtap='receive' data-order_id='{{item.id}}'>
+              <view class="l">实付：￥{{item.total_price}}</view>
+              <view class='receive'>确认收货</view>
+            </view>
+          </view>
+          <!-- 没有数据部分  -->
+          <view class='no-data' wx:if="{{orderList==''}}">
+            <image src='/images/no-data.png'></image>
+            <text>你还没有相关订单</text>
+          </view>
+        </scroll-view>
+      </swiper-item>
+      <!-- 评价 -->
+      <swiper-item wx:for="{{[2]}}" wx:key="">
+        <scroll-view scroll-y="true" class="scoll-h">
+          <view class="order" wx:for="{{orderList}}" wx:key="{{item.id}}" data-orderId='{{item.id}}'>
+            <view class="h">
+              <view class="l">订单编号：{{item.order_no}}</view>
+              <view class="r">{{item.remark||''}}</view>
+            </view>
+            <block wx:for="{{item.goods}}" wx:for-item="child" wx:key="{{child.index}}">
+              <view class="goods">
+                <view class="img">
+                  <image src="{{child.images}}"></image>
+                </view>
+                <view class="info">
+                  <text class="name">{{child.title}}</text>
+                  <text class="number">X {{child.buy_number}}</text>
+                  <text class="number">￥{{child.price}}</text>
+                  <!-- <view class='flex-row center'>
+                    <view class="status dj" wx:if="{{item.dj}}">代驾服务</view>
+                    <view class="status tjs " wx:if="{{item.tjs}}">调酒师服务</view>
+                    <view class="status ">专服配送</view>
+                  </view> -->
+                </view>
+                <!-- <view class="status"></view> -->
+              </view>
+            </block>
+            <view class="b">
+              <view class="l">实付：￥{{item.total_price}}</view>
+              <!-- <view class='receive'>确认收货</view> -->
+            </view>
+          </view>
+          <!-- 没有数据部分  -->
+          <view class='no-data' wx:if="{{orderList==''}}">
+            <image src='/images/no-data.png'></image>
+            <text>你还没有相关订单</text>
+          </view>
+        </scroll-view>
+      </swiper-item>
+      <!-- 已取消的订单 -->
+      <swiper-item wx:for="{{[3]}}" wx:key="">
+        <scroll-view scroll-y="true" class="scoll-h">
+          <view class="order" wx:for="{{orderList}}" wx:key="{{item.id}}" data-orderId='{{item.id}}'>
+            <view class="h">
+              <view class="l">订单编号：{{item.order_no}}</view>
+              <view class="r t">{{item.remark||'超时取消'}}</view>
+            </view>
+
+            <block wx:for="{{item.goods}}" wx:for-item="child" wx:key="{{child.index}}">
+              <view class="goods">
+                <view class="img">
+                  <image src="{{child.images}}"></image>
+                </view>
+                <view class="info">
+                  <text class="name">{{child.title}}</text>
+                  <text class="number">X {{child.buy_number}}</text>
+                  <text class="number">￥{{child.price}}</text>
+                  <!-- <view class='flex-row center'>
+                    <view class="status dj" wx:if="{{item.dj}}">代驾服务</view>
+                    <view class="status tjs " wx:if="{{item.tjs}}">调酒师服务</view>
+                    <view class="status ">专服配送</view>
+                  </view> -->
+                </view>
+                <!-- <view class="status"></view> -->
+              </view>
+            </block>
+          </view>
+          <!-- 没有数据部分  -->
+          <view class='no-data' wx:if="{{orderList==''}}">
+            <image src='/images/no-data.png'></image>
+            <text>你还没有相关订单</text>
+          </view>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>

@@ -1,0 +1,284 @@
+page {
+  height: 100%;
+  width: 100%;
+  background: #f4f4f4;
+}
+
+.orders {
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+}
+
+.order {
+  margin-top: 20rpx;
+  background: #fff;
+}
+
+.order .h {
+  height: 83.3rpx;
+  line-height: 83.3rpx;
+  margin-left: 31.25rpx;
+  padding-right: 31.25rpx;
+  border-bottom: 1px solid #f4f4f4;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.order .h .l {
+  float: left;
+}
+
+.order .h .r {
+  float: right;
+  color: rgb(228, 118, 51);
+  font-size: 24rpx;
+}
+
+.order .h .t {
+  color: rgb(211, 70, 65);
+}
+
+.order .goods {
+  display: flex;
+  align-items: center;
+  height: 199rpx;
+  margin-left: 31.25rpx;
+}
+
+.order .goods .img {
+  height: 145.83rpx;
+  width: 145.83rpx;
+  background: #f4f4f4;
+}
+
+.order .goods .img image {
+  height: 145.83rpx;
+  width: 145.83rpx;
+  border-radius: 10rpx;
+}
+
+.order .goods .info {
+  height: 145.83rpx;
+  flex: 1;
+  padding-left: 20rpx;
+}
+
+.order .goods .name {
+  /* margin-top: 30rpx; */
+  display: block;
+  height: 44rpx;
+  line-height: 44rpx;
+  color: #333;
+  font-size: 30rpx;
+}
+
+.order .goods .number {
+  display: block;
+  /* height: 37rpx; */
+  line-height: 56rpx;
+  color: #666;
+  font-size: 25rpx;
+}
+
+.order .goods .status {
+  width: 100rpx;
+  color: #fff;
+  font-size: 20rpx;
+  margin-top: 20rpx;
+  background-color: #8aca56;
+  padding: 4rpx 8rpx;
+  border-radius: 4rpx;
+  margin-right: 10rpx;
+}
+
+.order .goods .tjs {
+  width: 118rpx;
+  background: #f9b010;
+}
+
+.order .goods .dj {
+  background-color: #29acff;
+}
+
+.order .b {
+  height: 103rpx;
+  line-height: 103rpx;
+  margin-left: 31.25rpx;
+  padding-right: 31.25rpx;
+  border-top: 1px solid #f4f4f4;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.order .b .l {
+  float: left;
+}
+
+.order .b .r {
+  float: right;
+}
+
+.order .b .btn {
+  margin-top: 19rpx;
+  height: 64.5rpx;
+  line-height: 64.5rpx;
+  text-align: center;
+  padding: 0 20rpx;
+  border-radius: 5rpx;
+  font-size: 28rpx;
+  color: rgb(228, 170, 51);
+  background: #fff;
+  border: 1rpx solid rgb(228, 170, 51);
+}
+
+/* pages/job/jobList/jobList.wxss */
+
+.tab-content {
+  background-color: #fff;
+}
+
+.jobList {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.head-nav .tab-h {
+  width: 100vw;
+  height: 90rpx;
+  display: block;
+  background-color: #fff;
+  border-top: 1rpx solid #eee;
+  border-bottom: 1rpx solid #eee;
+}
+
+.head-nav .tab-h .tab-item {
+  display: inline-block;
+  width: 186rpx;
+  height: 90rpx;
+  line-height: 86rpx;
+  text-align: center;
+  color: #666;
+  font-size: 30rpx;
+  border-bottom: 2rpx solid transparent;
+}
+
+.head-nav .tab-h .active {
+  border-bottom: 4rpx solid #d8995b;
+  color: #d8995b;
+}
+
+.scoll-h {
+  background-color: #f0f1f3;
+  height: 92vh;
+}
+
+.appointment-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30rpx;
+  padding-left: 30rpx;
+  background-color: #fff;
+  height: 190rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.appointment-card .status {
+  width: 60rpx;
+}
+
+.card-left {
+  display: flex;
+  /* align-items: center; */
+}
+
+.hosptial-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+  position: relative;
+}
+
+.hosptial-info .name {
+  color: #333;
+  font-size: 33rpx;
+}
+
+.hosptial-info .title {
+  color: #666;
+  font-size: 28rpx;
+  margin-top: 10rpx;
+}
+
+.hosptial-info .time {
+  color: #999;
+  font-size: 26rpx;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.card-left image {
+  width: 169rpx;
+  height: 144rpx;
+}
+
+.card-right {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: #cc953d;
+  font-size: 28rpx;
+}
+
+.card-right image {
+  display: block;
+  margin: 0 auto;
+}
+
+.no-data {
+  /* height: 500rpx; *//* background-color: #fff; */
+  text-align: center;
+  padding-top: 1rpx;
+}
+
+.no-data  image {
+  display: block;
+  width: 179rpx;
+  height: 228rpx;
+  margin: 100rpx auto 0;
+}
+
+.no-data  text {
+  display: inline-block;
+  font-size: 28rpx;
+  color: #666;
+  margin-top: 30rpx;
+}
+
+.receive {
+  padding: 4rpx 10rpx;
+  background: #29acff;
+  opacity: 0.8;
+  color: #fff;
+  border-radius: 8rpx;
+  font-size: 26rpx;
+  line-height: 60rpx;
+  height: 60rpx;
+}
+
+.cancel {
+  padding: 0rpx 10rpx;
+  background: #fff;
+  opacity: 0.8;
+  color: #a02203;
+  border-radius: 8rpx;
+  font-size: 26rpx;
+  line-height: 60rpx;
+  height: 60rpx;
+  border: 1rpx solid #a02203;
+}

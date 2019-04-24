@@ -1,0 +1,106 @@
+/* pages/myWallet/myWallet.wxss */
+
+.container {
+  position: relative;
+}
+
+.account-num {
+  border-bottom: 1rpx solid #ddd;
+}
+
+.account-num text {
+  line-height: 120rpx;
+  text-align: center;
+  font-size: 32rpx;
+}
+
+.account-num .num {
+  font-size: 60rpx;
+}
+
+.head-bot view {
+  width: 49vw;
+  height: 140rpx;
+  line-height: 60rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.head-bot view .nums {
+  font-size: 50rpx;
+}
+
+.head-bot .all {
+  border-right: 1rpx solid #ddd;
+}
+
+.record {
+  line-height: 120rpx;
+  background-color: rgb(240, 239, 245);
+  font-size: 32rpx;
+}
+
+.record-item {
+  height: 140rpx;
+  border-bottom: 1rpx solid #ddd;
+}
+
+.withdraw {
+  height: 100rpx;
+  width: 100vw;
+  background: linear-gradient(to right, rgb(224, 185, 99), rgb(198, 141, 18));
+  color: #fff;
+  text-align: center;
+  line-height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  font-size: 32rpx;
+  border-radius: 0;
+  border: none;
+}
+
+.withdraw::after {
+  outline: none;
+}
+
+.left .time {
+  font-size: 26rpx;
+  color: #999;
+  margin-top: 10rpx;
+}
+
+.left .name {
+  font-size: 28rpx;
+  color: #777;
+}
+
+.no-data {
+  text-align: center;
+  line-height: 80rpx;
+  color: #999;
+  font-size: 28rpx;
+}
+
+.right text, .right view {
+  text-align: right;
+}
+
+.right .money {
+  color: rgb(198, 141, 18);
+  font-size: 34rpx;
+}
+
+.right .remark {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.record-item text {
+  line-height: 60rpx;
+}
+
+.scroll {
+  /* padding-bottom: 130rpx; */
+  height: 62vh;
+}

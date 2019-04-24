@@ -1,0 +1,114 @@
+<!--pages/commodity/commodity.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class='container'>
+
+  <!--轮播  -->
+  <swiper autoplay interval="5000" duration="1000" class='swiper-images-wrap' indicator-active-color='#047911'>
+    <block wx:for="{{goodsDetail.images_all}}" wx:key="">
+      <swiper-item>
+        <image mode='widthFix' catchtap='preImg' data-img='{{item}}' src="{{item}}" class="slide-image" class='order-img-item' />
+      </swiper-item>
+    </block>
+  </swiper>
+  <!--/轮播  -->
+
+  <!--商品详情  -->
+  <view class='commodity-content'>
+    <view class='commodity-content-info flex-column'>
+      <view class='commodity-content-info-title'>{{goodsDetail.title}}</view>
+      <view class='flex-row between'>
+        <view class='commodity-content-info-price' wx:if="{{goodsDetail.price}}">￥{{goodsDetail.price}}</view>
+        <view class='commodity-content-info-num' wx:if="{{goodsDetail.sales_count}}">销量：{{goodsDetail.sales_count}}</view>
+      </view>
+    </view>
+  </view>
+  <!--/商品详情  -->
+
+  <!--商品描述  -->
+  <view class='commodity-item'>
+    <view class='commodity-item-title flex-row'>
+      <view class='commodity-item-title-text'>商品参数</view>
+    </view>
+    <view class='commodity-item-content pad30'>
+      <view>
+        <text class='name'>品牌</text>
+        <text>{{goodsDetail.classify_name||'暂无'}}</text>
+      </view>
+      <!-- <view class='flex-row between'>
+        <text class='name'>规格</text>
+        <view class='betweenuse attrs'>
+          <block wx:for="{{type[0].info}}" wx:key="">
+            <text>{{item.value||'暂无'}}{{type[0].name}}</text>
+          </block>
+        </view>
+      </view> -->
+    </view>
+  </view>
+  <!--/商品描述  -->
+
+  <!--商品详情  -->
+  <view class='commodity-item'>
+    <view class='commodity-item-title'>
+      图文详情
+    </view>
+    <view class='commodity-item-imgs'>
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </view>
+  </view>
+  <!--/商品详情  -->
+
+  <view class='buy-area' catchtap='takeOrder' hidden='hidden'>
+    立即购买
+  </view>
+
+  <!--购买按钮  -->
+  <view class='commodity-buy-btns flex-row center around'>
+    <view class='cart-area' catchtap='navToCart'>
+      <image class='cart' src='/images/shop/cart.png' mode='widthFix'></image>
+    </view>
+    <view class='commodity-buy-btn' catchtap='addToCartText'>加入购物车</view>
+    <view class='commodity-buy-btn' catchtap='singleBuyText'>立即购买</view>
+  </view>
+  <!--/购买按钮  -->
+
+
+
+  <!--商品购买弹窗  -->
+  <view class='commodity-box-wrap {{buyNow?"active":""}}' catchtap='closeBox'>
+    <view class='commodity-box {{buyNow?"active":""}} flex-column' catchtap='showBox'>
+      <view class='commodity-box-top flex-column flex-1'>
+        <view class='flex-wrap'>
+          <view class='flex-bug'>
+            <scroll-view scroll-y class='scroll'>
+
+              <view class='commodity-box-title'>
+                <view class='select flex-row center'>
+                  <image src='{{goodsDetail.images}}' mode='widthFix'></image>
+                  <view class='select-info'>
+                    <view class='price'>¥{{goodsDetail.price}}</view>
+                    <view class='attributes'>已选 X{{goodsNum}}</view>
+                  </view>
+                </view>
+                <image src='/images/shop/close.png' catchtap='closeBox' class='commodity-box-close' mode='widthFix'></image>
+              </view>
+
+              <!-- <view class='commodity-box-type-items flex-row'>
+                <block wx:for="{{type[0].info}}" wx:key="{{index}}">
+                  <view catchtap='chooseSize' data-id='{{item.value_id}}' class='commodity-box-type-item {{sizeId==item.value_id?"active":""}}'>{{item.value}}{{type[0].name}}</view>
+                </block>
+              </view> -->
+
+              <view class='add-num'>
+                <view class='reduce' bindtap='resuceNum'>-</view>
+                <view class='num'>{{goodsNum}}</view>
+                <view class='add' bindtap='addNum'>+</view>
+              </view>
+            </scroll-view>
+          </view>
+        </view>
+      </view>
+      <view class='commodity-box-confirm {{btnText == "直接购买"?"red":"orange"}}' catchtap='{{btnText == "直接购买"?"singleBuy":"addToCart"}}'>{{btnText}}</view>
+    </view>
+  </view>
+  <!--/商品购买弹窗  -->
+</view>

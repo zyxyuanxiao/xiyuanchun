@@ -1,0 +1,7 @@
+<!--pages/feedback/feedback.wxml-->
+<view class='container'>
+  <form bindsubmit='submitFeedBack'>
+    <textarea name='feedback' placeholder='请输入您的反馈内容'></textarea>
+    <button form-type='submit' hover-class='none'>提交反馈</button>
+  </form>
+</view>

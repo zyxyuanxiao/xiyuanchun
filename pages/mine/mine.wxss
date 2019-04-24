@@ -1,0 +1,175 @@
+/* pages/mine/mine.wxss */
+
+.container {
+  padding-bottom: 50rpx;
+}
+
+.header {
+  width: 700rpx;
+  background-color: rgb(54, 54, 54);
+  padding: 40rpx 30rpx;
+}
+
+.header image {
+  width: 100rpx;
+  height: auto;
+  border-radius: 50%;
+  margin-right: 30rpx;
+}
+
+.userInfo {
+  flex-flow: column wrap;
+  justify-content: space-between;
+}
+
+.userInfo text {
+  color: #fff;
+}
+
+.userInfo text:last-child {
+  margin-top: 24rpx;
+  color: #fff;
+}
+
+.order {
+  width: 700rpx;
+  background-color: #fff;
+  padding: 0 0 30rpx 0rpx;
+}
+
+.order .all-order {
+  line-height: 80rpx;
+  border-bottom: 1rpx solid #f7f7f7;
+}
+
+.orderEntry .orderItem text {
+  color: #666;
+}
+
+.order .all-order  text:first-child {
+  font-weight: 600;
+  color: #000;
+}
+
+.order .all-order .right {
+  color: #999;
+}
+
+.other {
+  width: 700rpx;
+  background-color: #fff;
+  /* padding: 0 0 30rpx 0rpx; */
+  overflow: hidden;
+}
+
+.other view {
+  line-height: 100rpx;
+  padding: 0 20rpx;
+  border-bottom: 1rpx solid #f7f7f7;
+  align-items: center;
+}
+
+.other view:last-child {
+  border: none;
+}
+
+.other view text:first-child {
+  color: #333;
+}
+
+.other view text:last-child {
+  color: #666;
+}
+
+.other .flex-row .left image {
+  width: 44rpx;
+  height: 44rpx;
+  margin-right: 10rpx;
+}
+
+.other .left {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 0;
+  border: none;
+}
+
+.orderItem {
+  text-align: center;
+  margin-top: 20rpx;
+}
+
+.orderItem image {
+  display: block;
+  width: 60rpx;
+  margin: 0 auto;
+}
+
+.right {
+  color: #999 !important;
+  opacity: 0.6;
+}
+
+.achievement {
+  width: 700rpx;
+  margin: 20rpx auto 0;
+  background-color: #fff;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+
+.my-order {
+  /* width: 380rpx; *//* padding: 25rpx 97rpx; */
+  width: 350rpx;
+  line-height: 80rpx;
+  padding-left: 80rpx;
+}
+
+.my-order text {
+  color: rgb(51, 51, 51);
+  font-size: 28rpx;
+}
+
+.my-order .nums {
+  display: inline-block;
+  background-color: red;
+  color: #fff;
+  padding: 0 8rpx;
+  font-size: 20rpx;
+  border-radius: 50%;
+  height: 30rpx;
+  line-height: 30rpx;
+}
+
+.achievement .my-order:first-child {
+  border-bottom: 1rpx solid #f7f7f7;
+  border-right: 1rpx solid #f7f7f7;
+}
+
+.achievement .my-order:nth-child(2) {
+  border-bottom: 1rpx solid #f7f7f7;
+}
+
+.achievement .my-order:nth-child(3) {
+  border-right: 1rpx solid #f7f7f7;
+}
+
+.my-order image {
+  width: 44rpx;
+  height: 44rpx;
+}
+
+.contact {
+  width: 99vw;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  color: #666;
+  font-size: 28rpx;
+}
+
+.contact::after {
+  outline: none;
+  border: none;
+}

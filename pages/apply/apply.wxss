@@ -1,0 +1,155 @@
+/* pages/apply/apply.wxss */
+
+.first {
+  padding-top: 1rpx;
+}
+
+.first .item {
+  background-color: #fff;
+  width: 694rpx;
+  height: 184rpx;
+  line-height: 184rpx;
+  border-radius: 10rpx;
+  margin-top: 50rpx;
+  margin: 50rpx auto 0;
+  padding: 0 30rpx 0 50rpx;
+  border: 3rpx solid transparent;
+}
+
+.first .active {
+  border: 3rpx solid rgb(255, 183, 53);
+}
+
+.first .item text {
+  font-size: 28rpx;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+}
+
+.first .item image {
+  width: 170rpx;
+}
+
+.first .next {
+  background: linear-gradient(to right, rgb(224, 185, 99), rgb(198, 141, 18));
+  color: #fff;
+  border: none;
+  width: 90vw;
+  margin-top: 40rpx;
+  font-size: 28rpx;
+  line-height: 100rpx;
+}
+
+/* 表单 */
+
+.form-item {
+  /* margin-bottom: 30rpx; */
+  margin-top: 10rpx;
+}
+
+.deposit {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.form-title {
+  font-size: 15px;
+  color: #333;
+  margin-bottom: 20rpx;
+  padding-left: 30rpx;
+}
+
+.form-group {
+  background-color: #fff;
+  padding: 0 30rpx;
+  font-size: 15px;
+}
+
+.label-control {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border-bottom: 1rpx solid rgb(240, 239, 245);
+  padding: 20rpx 0;
+  align-items: center;
+}
+
+.label-control:last-of-type {
+  border-bottom: 0;
+}
+
+.label-text {
+  color: #666;
+  width: 150rpx;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  height: 30rpx;
+}
+
+.input-control {
+  flex: 1;
+  text-align: right;
+}
+
+.address {
+  display: flex;
+  align-items: center;
+  flex: 1 auto;
+}
+
+.location {
+  width: 27rpx;
+  height: 40rpx;
+  margin-left: 10rpx;
+}
+
+.input-btn {
+  font-size: 12px;
+  padding: 0 4px;
+  line-height: 2.3;
+}
+
+.upload {
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.add-img {
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.upload .upload-img {
+  width: 100rpx;
+  height: 100rpx;
+  /* margin-right: 20rpx; */
+  display: block;
+  margin: 0 auto;
+}
+
+.deposit-num {
+  color: #999;
+}
+
+.second button {
+  background: linear-gradient(to right, rgb(224, 185, 99), rgb(198, 141, 18));
+  /* opacity: 0.6; */
+  color: #fff;
+  width: 96vw;
+  /* border-radius: 50rpx; */
+  border: none;
+  /* margin: 30rpx auto 0; */
+  letter-spacing: 5px;
+  border-radius: 0;
+  margin-top: 100rpx;
+  /* margin-bottom: 50rpx; */
+}
+
+.upload .label-text {
+  font-size: 24rpx;
+  text-align: center;
+  color: #666;
+  margin-top: 10rpx;
+}
+

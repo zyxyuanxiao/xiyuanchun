@@ -1,0 +1,158 @@
+<!--pages/takeOrder/takeOrder.wxml-->
+<view class='container'>
+  <!-- 收货地址 -->
+  <view class='item flex-row center between'>
+    <view class='left flex-row center'>
+      <image src='/images/order/loca.png' mode='widthFix'></image>
+      <input value='{{address}}' placeholder='请选择地址'></input>
+    </view>
+    <view class='right  flex-row center'>
+      <view catchtap='chooseAddess'>
+        <image class='rightIcon' src='/images/right.png'></image>
+      </view>
+    </view>
+  </view>
+  <!-- 收货日期 -->
+  <view class='item flex-row center between'>
+    <view class='left flex-row center'>
+      <image src='/images/order/date.png' mode='widthFix'></image>
+      <input value='{{date}}' placeholder='请选择服务日期'></input>
+    </view>
+    <view class='right  flex-row center'>
+      <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+        <image class='rightIcon' src='/images/right.png'></image>
+      </picker>
+    </view>
+  </view>
+  <!-- 收货时间 -->
+  <view class='item flex-row center between'>
+    <view class='left flex-row center'>
+      <image src='/images/order/time.png' mode='widthFix'></image>
+      <input value='{{time}}' placeholder='请选择服务时间'></input>
+    </view>
+    <view class='right  flex-row center'>
+      <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+        <image class='rightIcon' src='/images/right.png'></image>
+      </picker>
+    </view>
+  </view>
+  <!-- 商品数量 -->
+  <view class='item flex-row center between'>
+    <view class='left flex-row center'>
+      <image src='/images/order/num.png' mode='widthFix'></image>
+      <input value='{{num}}' placeholder='请选择商品数量'></input>
+    </view>
+    <view class='right  flex-row center'>
+      <picker bindchange="bindNumChange" value="{{index}}" range="{{NumArr}}">
+        <image class='rightIcon' src='/images/right.png'></image>
+      </picker>
+    </view>
+  </view>
+  <!-- 规格 -->
+  <view class='item flex-row center between'>
+    <view class='left flex-row center'>
+      <image src='/images/order/size.png' mode='widthFix'></image>
+      <input value='{{size}}' placeholder='请选择规格'></input>
+    </view>
+    <view class='right  flex-row center'>
+      <picker bindchange="bindSizeChange" value="{{index}}" range="{{SizeArr}}">
+        <image class='rightIcon' src='/images/right.png'></image>
+      </picker>
+    </view>
+
+  </view>
+  <view class='other-service'>
+    <view class='title'>定制服务</view>
+    <view class='serviceList flex-row around center'>
+      <view class='serviceItem flex-row center {{dj==true?"select":""}}' catchtap='choosedj'>
+        <image src='/images/order/{{dj==true?"dj_on.png":"dj.png"}}' mode='widthFix'></image>
+        <text>代驾</text>
+      </view>
+      <view class='serviceItem flex-row center {{tjs==true?"select":""}}' catchtap='choosetjs'>
+        <image src='/images/order/{{tjs==true?"tjs_on.png":"tjs.png"}}' mode='widthFix'></image>
+        <text>调酒师</text>
+      </view>
+      <view class='serviceItem flex-row center {{zf==true?"select":""}}' catchtap='choosezf'>
+        <image src='/images/order/zf_on.png' mode='widthFix'></image>
+        <text>专服</text>
+      </view>
+    </view>
+
+    <view class='notice'>
+      注：平台提供专服的服务，前两小时服务免费，超过两小时的由客户自己承担。
+    </view>
+  </view>
+  <view class='pay-area flex-row center'>
+    <view class='price'>
+      ¥{{prices||0}}
+    </view>
+    <view class='pay' catchtap='buy'>立即购买</view>
+  </view>
+</view>
+<view class='tiaojiushi hide {{tjs==true?"show":""}}'>
+  <image class='cancel' src='/images/cancel.png' mode='widthFix' catchtap='cancelTJ'></image>
+  <view class='content'>
+    <view wx:if="{{tjsFirst}}">
+      <view class='title'>调酒师列表</view>
+      <scroll-view>
+        <radio-group class="radio-group" bindchange="serverSelect">
+          <label class="radio" wx:for="{{serverList}}" wx:key="{{index}}">
+            <view class='Item flex-row center between'>
+              <view class='left flex-row center'>
+                <image src='{{item.avatar}}' mode='widthFix'></image>
+                <view class='info-name flex-column'>
+                  <view>{{item.realname}}</view>
+                  <view class='degree' wx:if="{{item.degree==5}}">高级技师</view>
+                  <view class='degree' wx:if="{{item.degree==4}}">技师</view>
+                  <view class='degree' wx:if="{{item.degree==3}}">高级调酒师</view>
+                  <view class='degree' wx:if="{{item.degree==2}}">中级调酒师</view>
+                  <view class='degree' wx:if="{{item.degree==1}}">初级调酒师</view>
+                </view>
+              </view>
+              <view class='right flex-row center'>
+                <view class='price'>￥{{item.price}}/小时</view>
+                <radio value="{{item.mid}}" checked="{{item.checked}}" />
+              </view>
+            </view>
+          </label>
+        </radio-group>
+        <button class='nextButton' catchtap='navToSecond'>下一步</button>
+      </scroll-view>
+    </view>
+    <view wx:if="{{tjsSecond}}">
+      <view class='title'>填写资料</view>
+      <view class='startAd flex-row center'>
+        <text>预约时间：</text>
+        <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTjsTimeChange">
+          <input class='adInput' value='{{DJtime}}' name="startTime" placeholder='请选择服务时间'></input>
+        </picker>
+      </view>
+      <view class='startAd flex-row center'>
+        <text>预约地点：</text>
+        <input class='adInput' value='{{startAddresstData.address}}' name="startAd" catchtap='chooseStart' placeholder='请选择服务地点'></input>
+      </view>
+      <button class='nextButton' form-type='submit'>提交预约</button>
+    </view>
+  </view>
+</view>
+<view class='daijia hide {{dj==true?"show":""}}'>
+  <image class='cancel' src='/images/cancel.png' mode='widthFix' catchtap='cancelDJ'></image>
+  <view class='content djs-content'>
+    <view class='title'>预约代驾</view>
+    <view class='startAd flex-row center'>
+      <text>预约时间：</text>
+      <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindDjTimeChange">
+        <input class='adInput' value='{{DJtime}}' name="startTime" placeholder='请选择服务时间'></input>
+      </picker>
+    </view>
+    <view class='startAd flex-row center'>
+      <text>预约起点：</text>
+      <input class='adInput' value='{{startAddresstData.address}}' name="startAd" catchtap='chooseStart' placeholder='请选择起点位置'></input>
+    </view>
+    <view class='startAd flex-row center'>
+      <text>预约终点：</text>
+      <input class='adInput' value='{{endAddresstData.address}}' name="startAd" catchtap='chooseEnd' placeholder='请选择终点位置'></input>
+    </view>
+    <button form-type='submit'>提交预约</button>
+  </view>
+</view>

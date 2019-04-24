@@ -1,0 +1,156 @@
+<!--pages/buyconfirm/buyconfirm.wxml-->
+<view class='container'>
+  <view class='location flex-row center between' catchtap='chooseLocation'>
+    <view class='left flex-row center'>
+      <image src='/images/order/shouhuo.png' mode='widthFix'></image>
+      <view class='address'>
+        <view class='name-phone'>
+          <text class='name'>{{name||'请填写收货信息'}}</text>
+          <text class='phone'>{{phone}}</text>
+        </view>
+        <view class='address-info'>{{address}}</view>
+      </view>
+    </view>
+    <image src='/images/right.png' mode='widthFix' class='right'></image>
+  </view>
+
+  <view class='orderItem'>
+    <block wx:for="{{goods}}" wx:key="{{index}}">
+      <view class='Item flex-row center'>
+        <image src='{{item.images}}' mode='widthFix'></image>
+        <view class='info'>
+          <view class='title text-flow'>{{item.title}}</view>
+          <view class='num'>X {{item.buy_number}}</view>
+          <view class='price'>￥{{item.total_price}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 预约代驾 -->
+  <view class='daijia other'>
+    <view class='head flex-row center between'>
+      <view class='left flex-row center'>
+        <image src='/images/apply/dj.png' mode='widthFix'></image>
+        <text>代驾</text>
+      </view>
+      <checkbox-group bindchange="selectDJ">
+        <checkbox class='check' color='rgb(255,84,0)' value="DJ" checked="{{selectDJ}}" />
+      </checkbox-group>
+    </view>
+    <view class='info  djs-content info-dj hide{{selectDJView?"show":""}}'>
+      <view class='content'>
+        <view class='startAd flex-row center'>
+          <text class='startTime'></text>
+          <picker mode="time" value="{{time}}" bindchange="bindDjTimeChange">
+            <input class='adInput' disabled value='{{DJtimes}}' name="startTime" placeholder='请选择服务时间'></input>
+          </picker>
+        </view>
+        <view class='startAd flex-row center'>
+          <text class='startLoca'></text>
+          <input class='adInput' disabled value='{{DJStartAddress}}' name="startAd" catchtap='chooseStart' placeholder='请选择预约地点'></input>
+        </view>
+        <view class='startAd flex-row center'>
+          <text class='endLoca'></text>
+          <view>
+
+            <picker bindchange="chooseDJEnd" value="{{index}}" range="{{num}}">
+              <input class='adInput' disabled value='{{DJNums}}' name="DJNum" placeholder='请选择代驾数量'></input>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 预约专服 -->
+  <view class='zf other' hidden='{{hideAll==false?"hide":""}}'>
+    <view class='head flex-row center between'>
+      <view class='left flex-row center'>
+        <image src='/images/apply/zf.png' mode='widthFix'></image>
+        <text>专服</text>
+      </view>
+      <checkbox-group bindchange="selectZF">
+        <checkbox color='rgb(255,84,0)' value="ZF" checked="{{selectZF}}" />
+      </checkbox-group>
+    </view>
+    <view class='info djs-content info-dj hide{{selectZFView?"show":""}}'>
+      <view class='content'>
+        <view class='startAd flex-row center'>
+          <text class='startTime'></text>
+          <picker bindchange="chooseZFNum" value="{{index}}" range="{{num}}">
+            <input class='adInput' disabled value='{{ZFNums}}' name="ZFNum" placeholder='请选择专服数量'></input>
+          </picker>
+        </view>
+        <view class='startAd flex-row center'>
+          <text class='startLoca'></text>
+          <picker mode="time" value="{{time}}" start="09:01" end="23:59" bindchange="chooseZFTime">
+            <input class='adInput' disabled value='{{ZFTimes}}' name="startTime" placeholder='请选择服务时间'></input>
+          </picker>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 预约调酒师 -->
+  <view class='tjs other' hidden>
+    <view class='head flex-row center between'>
+      <view class='left flex-row center'>
+        <image src='/images/apply/tjs.png' mode='widthFix'></image>
+        <text>调酒师</text>
+      </view>
+      <checkbox-group bindchange="selectTJS">
+        <checkbox color='rgb(255,84,0)' value="TJS" checked="{{selectTJS}}" />
+      </checkbox-group>
+    </view>
+    <view class='info tiaojiushi  info-dj hide{{selectTJSView?"show":""}}'>
+      <view class='content'>
+        <view class='info'>
+          <view class='startAd flex-row center'>
+            <text class='startTime'></text>
+            <picker mode="time" value="{{time}}" start="" end="" bindchange="bindTjsTimeChange">
+              <input class='adInput' disabled value='{{TJSTimes}}' name="startTime" placeholder='调酒师预约时间'></input>
+            </picker>
+          </view>
+        </view>
+        <scroll-view>
+          <checkbox-group bindchange="chooseTJSList">
+            <label class="radio radio-group" wx:for="{{serverList}}" wx:if="{{serverList.length !=0}}" wx:key="{{index}}">
+              <view class='Item flex-row center between'>
+                <view class='left info flex-row center'>
+                  <checkbox value="{{item.mid}}" data-index='{{index}}' checked="{{item.checked}}" />
+                  <image src='{{item.avatar}}' mode='widthFix'></image>
+                  <view class='info-name flex-column'>
+                    <view>{{item.realname}}</view>
+                    <view class='degree' wx:if="{{item.degree==5}}">高级技师</view>
+                    <view class='degree' wx:if="{{item.degree==4}}">技师</view>
+                    <view class='degree' wx:if="{{item.degree==3}}">高级调酒师</view>
+                    <view class='degree' wx:if="{{item.degree==2}}">中级调酒师</view>
+                    <view class='degree' wx:if="{{item.degree==1}}">初级调酒师</view>
+                  </view>
+                </view>
+                <view class='rights info flex-row center'>
+                  <view class='price'>￥{{item.price}}/小时</view>
+                </view>
+              </view>
+            </label>
+            <view class='no-tjs' wx:if="{{serverList.length ==0}}">暂无可用的调酒师</view>
+
+          </checkbox-group>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+
+
+
+
+  <view class='toPay flex-row center end between'>
+    <view class='price'>
+      合计：
+      <text>￥{{allPrice}}</text>
+    </view>
+    <button class='pay' catchtap='toBuy' disabled='{{payDisabled==true?"disabled":""}}' wx:if="{{type==1}}">提交订单</button>
+    <button class='pay' catchtap='toPay' disabled='{{payDisabled==true?"disabled":""}}' wx:else>提交订单</button>
+  </view>
+</view>

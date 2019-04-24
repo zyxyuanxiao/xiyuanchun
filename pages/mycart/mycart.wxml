@@ -1,0 +1,61 @@
+<!--pages/mycart/mycart.wxml-->
+<block wx:if="{{loading}}">
+  <view class='loading-wrap flex-column flex-center'>
+    <image class='loading-gif' mode='aspectFit' src='/images/icon/loading.gif'></image>
+  </view>
+</block>
+<block wx:else>
+  <view class='container' wx:if="{{carts.length}}">
+    <scroll-view scroll-y='true' scroll-with-animation='true'>
+
+      <view class='crat-list'>
+        <!-- <view class='cart-tips flex-row'>
+        <icon size='15' type='info'></icon>
+        <view catchtap='deleteCommodity'>点击商品可移出购物车</view>
+      </view> -->
+
+        <checkbox-group bindchange="checkGoods">
+          <view class='cart-item flex-column' wx:for="{{carts}}" wx:for-item="cartItem" wx:key="{{cartItem.id}}">
+            <view class='cart-item-content flex-row between'>
+              <image class='cart-item-content-img' mode='aspectFit' src='{{cartItem.images}}'></image>
+              <view class='cart-item-content-info flex-column'>
+                <view class='cart-item-content-info-title multi-two-text-flow'>{{cartItem.title}}</view>
+                <view class='cart-item-content-info-operation flex-row'>
+                  <view class='cart-item-content-info-price'>￥{{cartItem.price}}</view>
+                  <view class='add-num'>
+                    <view class='reduce' data-num='{{num||cartItem.buy_number}}' data-index='{{index}}' data-goodId='{{cartItem.id}}' data-shop_id='{{cartItem.shop_id}}' data-type='reduce' catchtap='updataGoodsNum'>-</view>
+                    <view class='num'>{{cartItem.buy_number}}</view>
+                    <view class='add' data-shop_id='{{cartItem.shop_id}}' data-num='{{num||cartItem.buy_number}}' data-index='{{index}}' data-goodId='{{cartItem.id}}' data-type='add' catchtap='updataGoodsNum'>+</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class='flex-row center between all-price'>
+              <!-- <icon size='25' type='success' color='{{sumCart[index]?"":"#ddd"}}'></icon> -->
+              <checkbox color='red' value="{{cartItem.detail_id}}" checked="{{cartItem.checked}}" />
+              <view class='all'>总计：
+                <text>¥{{cartItem.total_price}}</text>
+              </view>
+            </view>
+          </view>
+        </checkbox-group>
+      </view>
+    </scroll-view>
+
+    <!--购买  -->
+    <view class='cart-buy flex-row'>
+      <view class='cart-buy-price'>总计：￥{{allPrices}}</view>
+      <view class='cart-buy-btn' hover-class='cart-buy-btn-hover' hover-stay-time='150' catchtap='payForIt'>结算</view>
+    </view>
+    <!--/购买  -->
+
+  </view>
+
+  <view class='container flex-column special' wx:else>
+    <view class='cart-none-wrap flex-column flex-center'>
+      <image class='cart-none-img' mode='aspectFit' src='/images/icon/cart_big.png'></image>
+      <view class='cart-none-tips'>购物车空空如也~</view>
+    </view>
+    <button catchtap='goToShoppingMall' class='order-submit' hover-class='submit-hover'>去商城逛逛</button>
+  </view>
+</block>

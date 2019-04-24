@@ -1,0 +1,132 @@
+.main {
+  height: 100%;
+  position: relative;
+  border-top: 1rpx solid #f7f7f7;
+}
+
+.menu-left {
+  float: left;
+  width: 166rpx;
+  height: 100%;
+  /* border-right: 1rpx solid #fff; */
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.menu-right {
+  float: right;
+  width: 586rpx;
+  height: 100%;
+  overflow: hidden;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.menu-left .cate-list {
+  line-height: 40rpx;
+  text-align: center;
+  padding: 25rpx 0;
+  font-size: 28rpx;
+  color: rgb(51, 51, 51);
+  border-left: 4rpx solid transparent;
+}
+
+.menu-left .cate-list.on {
+  background-color: #fff;
+  color: #333;
+  font-size: 28rpx;
+  border-left: 4rpx solid #d8995b;
+}
+
+.cate-box {
+  padding-left: 10rpx;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.cate-box .cate-banner image {
+  height: 192rpx;
+  display: block;
+  width: 100%;
+}
+
+.cate-box .cate-title {
+  line-height: 30rpx;
+  padding: 40rpx 0 60rpx;
+  text-align: center;
+  color: #959595;
+  font-size: 0.8rem;
+  position: relative;
+}
+
+.cate-title:before, .cate-title:after {
+  width: 42rpx;
+  height: 1rpx;
+  background-color: #959595;
+  content: '';
+  position: absolute;
+  top: 54rpx;
+}
+
+.cate-title:after {
+  right: 125rpx;
+}
+
+.cate-title:before {
+  left: 125rpx;
+}
+
+.product-list {
+  width: 202rpx;
+  height: 276rpx;
+  font-size: 0.68rem;
+  box-shadow: 0 0 5rpx rgba(79, 79, 79, 0.35);
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin-left: 55rpx;
+  margin-bottom: 20rpx;
+}
+
+.product-list:nth-child(3n) {
+  margin-right: 0;
+}
+
+.product-list image {
+  width: 100%;
+  max-height: 206rpx;
+  border-radius: 10rpx;
+}
+
+.product-list-name view {
+  color: #333;
+  font-size: 30rpx;
+}
+
+.product-list-name .score {
+  color: #49b885;
+  line-height: 50rpx;
+  font-size: 28rpx;
+}
+
+.cate-product {
+  padding-top: 30rpx;
+}
+
+.product-list-name {
+  font-size: 28rpx;
+  color: rgb(51, 51, 51);
+  /* line-height: 40rpx;
+  margin-top: 20rpx; */
+  width: 190rpx;
+  line-height: 70rpx;
+  text-align: center;
+}
+
+.no-goods {
+  text-align: center;
+  line-height: 200rpx;
+  color: #999;
+  font-size: 28rpx;
+}

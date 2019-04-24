@@ -1,0 +1,422 @@
+<view class="containers">
+  <view class='my-appointment'>
+    <view class='head-nav'>
+      <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+        <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav">已预约</view>
+        <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">进行中</view>
+        <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">已完成</view>
+        <view class="tab-item {{currentTab==3?'active':''}}" data-current="3" bindtap="swichNav">已取消</view>
+      </scroll-view>
+    </view>
+    <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:92vh">
+      <!--全部部分  -->
+      <swiper-item wx:for="{{[0]}}" wx:key="">
+        <scroll-view scroll-y="true" class="scoll-h">
+          <view class="order" wx:if="{{length!=0}}">
+            <block wx:for="{{orderList.barman}}" wx:key="{{index}}">
+              <view class='shopsInfo kehuinfo'>
+                <view class='title'>调酒师派单信息</view>
+                <view class='detail'>
+                  <view class='info'>专服姓名：
+                    <text>{{item.realname}}</text>
+                  </view>
+                  <view class='info'>预约时间：
+                    <text>{{item.expect_time}}</text>
+                  </view>
+                  <view wx:if="{{item.status_number ==1}}" class='info'>联系电话：
+                    <text>{{item.tel}}</text>
+                  </view>
+                  <view wx:if="{{item.status_number ==2}}" class='info' data-phone='{{item.SecretNo}}' catchtap='makePhone'>联系电话：
+                    <text>{{item.SecretNo}}转{{item.Extension}}</text>
+                  </view>
+                  <view class='info'>预约状态：
+                    <text wx:if="{{item.status_number ==1}}" class='status'>{{item.status_val}}</text>
+                    <text wx:if="{{item.status_number ==2}}" class='status2'>{{item.status_val}}</text>
+                  </view>
+                  <view class='info' wx:if="{{item.status_number ==2}}">距离 ：
+                    <text>{{item.distance}}</text>
+                  </view>
+                </view>
+                <view class='cancel' catchtap='cancel' data-type='{{item.type}}' data-order_detail_id='{{item.order_detail_id}}'>取消预约</view>
+              </view>
+            </block>
+            <block wx:for="{{orderList.driver}}" wx:key="{{index}}">
+              <view class='shopsInfo kehuinfo'>
+                <view class='title'>代驾派单信息</view>
+                <view class='detail'>
+                  <view class='info'>代驾姓名：
+                    <text>{{item.realname}}</text> </view>
+                  <view wx:if="{{item.status_number ==1}}" class='info'>联系电话：
+                    <text>{{item.tel}}</text>
+                  </view>
+                  <view wx:if="{{item.status_number ==2}}" class='info' data-phone='{{item.SecretNo}}' catchtap='makePhone'>联系电话：
+                    <text>{{item.SecretNo}}转{{item.Extension}}</text>
+                  </view>
+                  <view class='info'>预约时间：
+                    <text>{{item.expect_time}}</text>
+                  </view>
+                  <view class='info'>起点：
+                    <text>{{item.address}}</text>
+                  </view>
+                  <view class='info' wx:if="{{item.aim_address !=null}}">目的地：
+                    <text>{{item.aim_address}}</text>
+                  </view>
+                  <view class='info'>预约状态：
+                    <text wx:if="{{item.status_number ==1}}" class='status'>{{item.status_val}}</text>
+                    <text wx:if="{{item.status_number ==2}}" class='status2'>{{item.status_val}}</text>
+                  </view>
+                  <view class='info' wx:if="{{item.status_number ==2}}">距离 ：
+                    <text>{{item.distance}}</text>
+                  </view>
+                </view>
+                <view class='cancel' catchtap='cancel' data-type='{{item.type}}' data-order_detail_id='{{item.order_detail_id}}'>取消预约</view>
+              </view>
+            </block>
+            <block wx:for="{{orderList.server}}" wx:key="{{index}}">
+              <view class='shopsInfo kehuinfo'>
+                <view class='title'>专服派单信息</view>
+                <view class='detail'>
+                  <view class='info'>专服姓名：
+                    <text>{{item.realname}}</text>
+                  </view>
+                  <view wx:if="{{item.status_number ==1}}" class='info'>联系电话：
+                    <text>{{item.tel}}</text>
+                  </view>
+                  <view wx:if="{{item.status_number ==2}}" class='info' data-phone='{{item.SecretNo}}' catchtap='makePhone'>联系电话：
+                    <text>{{item.SecretNo}}转{{item.Extension}}</text>
+                  </view>
+                  <view class='info'>预约时间：
+                    <text>{{item.expect_time}}</text>
+                  </view>
+                  <view class='info'>预约状态：
+                    <text wx:if="{{item.status_number ==1}}" class='status'>{{item.status_val}}</text>
+                    <text wx:if="{{item.status_number ==2}}" class='status2'>{{item.status_val}}</text>
+                  </view>
+                  <view class='info' wx:if="{{item.status_number ==2}}">距离 ：
+                    <text>{{item.distance}}</text>
+                  </view>
+                </view>
+                <view class='cancel' catchtap='cancel' data-type='{{item.type}}' data-order_detail_id='{{item.order_detail_id}}'>取消预约</view>
+              </view>
+            </block>
+            <block wx:for="{{orderList.order}}" wx:key="{{index}}">
+              <view class='shopsInfo kehuinfo'>
+                <view class='title'>待派单信息</view>
+                <view class='detail'>
+                  <view class='info'>下单时间：
+                    <text>{{item.add_time}}</text>
+                  </view>
+                  <view class='info' wx:if="{{item.server1_number !=0}}">预约代驾：
+                    <text>{{item.server1_number}}人</text>
+                  </view>
+                  <view class='info' wx:if="{{item.server1_number !=0}}">预约代驾时间：
+                    <text>{{item.time1}}</text>
+                  </view>
+                  <view class='info' wx:if="{{item.server3_number !=0}}">预约专服：
+                    <text>{{item.server3_number}}人</text>
+                  </view>
+                  <view class='info' wx:if="{{item.server3_number !=0}}">预约专服时间：
+                    <text>{{item.time3}}</text>
+                  </view>
+                  <view class='info'>预约状态：
+                    <text class='status'>待派单</text>
+                  </view>
+                </view>
+                <view class='cancel' catchtap='cancelyy' data-type='{{item.type}}' data-order_id='{{item.order_id}}'>取消预约</view>
+              </view>
+            </block>
+          </view>
+          <!-- 没有数据部分  -->
+          <view class='no-data' wx:else>
+            <image src='/images/no-data.png'></image>
+            <text>你还没有相关订单</text>
+          </view>
+        </scroll-view>
+      </swiper-item>
+      <swiper-item wx:for="{{[1]}}" wx:key="">
+        <scroll-view scroll-y="true" class="scoll-h">
+          <view class="order" wx:if="{{length!=0}}">
+            <block wx:for="{{orderList.barman}}" wx:key="{{index}}">
+              <view class='shopsInfo kehuinfo'>
+                <view class='title'>预约调酒师信息</view>
+                <view class='detail'>
+                  <view class='info'>专服姓名：
+                    <text>{{item.realname}}</text>
+                  </view>
+                  <view class='info'>预约时间：
+                    <text>{{item.expect_time}}</text>
+                  </view>
+                  <view class='info' data-phone='{{item.SecretNo}}' catchtap='makePhone'>联系电话：
+                    <text>{{item.SecretNo}}转{{item.Extension}}</text>
+                  </view>
+                  <view class='info'>预约状态：
+                    <text wx:if="{{item.status_number ==1}}" class='status'>{{item.status_val}}</text>
+                    <text wx:if="{{item.status_number ==2}}" class='status2'>{{item.status_val}}</text>
+                  </view>
+                  <view class='info' wx:if="{{item.status_number ==2}}">距离 ：
+                    <text>{{item.distance}}</text>
+                  </view>
+                </view>
+              </view>
+            </block>
+            <block wx:for="{{orderList.driver}}" wx:key="{{index}}">
+              <view class='shopsInfo kehuinfo'>
+                <view class='title'>预约代驾信息</view>
+                <view class='detail'>
+                  <view class='info'>代驾姓名：
+                    <text>{{item.realname}}</text> </view>
+                  <view class='info' data-phone='{{item.SecretNo}}' catchtap='makePhone'>联系电话：
+                    <text>{{item.SecretNo}}转{{item.Extension}}</text>
+                  </view>
+                  <view class='info'>预约时间：
+                    <text>{{item.expect_time}}</text>
+                  </view>
+                  <view class='info'>起点：
+                    <text>{{item.address}}</text>
+                  </view>
+                  <view class='info'>目的地：
+                    <text>{{item.aim_address}}</text>
+                  </view>
+                  <view class='info'>预约状态：
+                    <text wx:if="{{item.status_number ==1}}" class='status'>{{item.status_val}}</text>
+                    <text wx:if="{{item.status_number ==2}}" class='status2'>{{item.status_val}}</text>
+                  </view>
+                  <view class='info' wx:if="{{item.status_number ==2}}">距离 ：
+                    <text>{{item.distance}}</text>
+                  </view>
+                </view>
+              </view>
+            </block>
+            <block wx:for="{{orderList.server}}" wx:key="{{index}}">
+              <view class='shopsInfo kehuinfo'>
+                <view class='title'>预约专服信息</view>
+                <view class='detail'>
+                  <view class='info'>专服姓名：
+                    <text>{{item.realname}}</text>
+                  </view>
+                  <view class='info' data-phone='{{item.SecretNo}}' catchtap='makePhone'>联系电话：
+                    <text>{{item.SecretNo}}转{{item.Extension}}</text>
+                  </view>
+                  <view class='info'>预约时间：
+                    <text>{{item.expect_time}}</text>
+                  </view>
+                  <view class='info'>预约状态：
+                    <text wx:if="{{item.status_number ==1}}" class='status'>{{item.status_val}}</text>
+                    <text wx:if="{{item.status_number ==2}}" class='status2'>{{item.status_val}}</text>
+                  </view>
+                  <view class='info' wx:if="{{item.status_number ==2}}">距离 ：
+                    <text>{{item.distance}}</text>
+                  </view>
+                </view>
+              </view>
+            </block>
+          </view>
+          <!-- 没有数据部分  -->
+          <view class='no-data' wx:else>
+            <image src='/images/no-data.png'></image>
+            <text>你还没有相关订单</text>
+          </view>
+        </scroll-view>
+      </swiper-item>
+      <swiper-item wx:for="{{[2]}}" wx:key="">
+        <scroll-view scroll-y="true" class="scoll-h">
+          <view class="order" wx:if="{{length!=0}}">
+            <block wx:for="{{orderList.barman}}" wx:key="{{index}}">
+              <view class='shopsInfo kehuinfo' data-status='{{item.status_val}}' catchtap='payOrder' data-order_id='{{item.order_id}}'>
+                <view class='title'>预约调酒师信息</view>
+                <view class='detail'>
+                  <view class='info'>专服姓名：
+                    <text>{{item.realname}}</text>
+                  </view>
+                  <view class='info'>预约时间：
+                    <text>{{item.expect_time}}</text>
+                  </view>
+                  <view class='info'>联系电话：
+                    <text>{{item.tel}}</text>
+                  </view>
+                  <view class='info'>支付金额：
+                    <text>￥{{item.price}}</text>
+                  </view>
+                  <view class='info'>预约状态：
+                    <text wx:if="{{item.status_number ==1}}" class='status'>{{item.status_val}}</text>
+                    <text wx:if="{{item.status_number ==2}}" class='status2'>{{item.status_val}}</text>
+                    <text wx:if="{{item.status_number ==3}}" class='status3'>{{item.status_val}}</text>
+                    <text wx:if="{{item.status_number ==4}}" class='status4'>{{item.status_val}}</text>
+                  </view>
+                </view>
+                <button class='topay' data-type='{{item.type}}' wx:if="{{item.status_number==1}}" data-status='{{item.status_val}}' catchtap='payOrder' data-order_id='{{item.order_detail_id}}'>去支付</button>
+                <button class='confirmTasks' wx:if="{{item.status_number==2}}" data-type='{{item.type}}' data-order_id='{{item.order_detail_id}}' catchtap='confirmTasks'>确认</button>
+                <button class='toAssess' data-order_id='{{item.order_detail_id}}' wx:if="{{item.status_number==3}}" catchtap='toAssess' data-serverid='{{item.server_id}}'>去评价</button>
+              </view>
+            </block>
+            <block wx:for="{{orderList.driver}}" wx:key="{{index}}">
+              <view class='shopsInfo kehuinfo' data-status='{{item.status_val}}' catchtap='payOrder' data-order_id='{{item.order_id}}'>
+                <view class='title'>预约代驾信息</view>
+                <view class='detail'>
+                  <view class='info'>代驾姓名：
+                    <text>{{item.realname}}</text> </view>
+                  <view class='info'>联系电话：
+                    <text>{{item.tel}}</text>
+                  </view>
+                  <view class='info'>预约时间：
+                    <text>{{item.expect_time}}</text>
+                  </view>
+                  <view class='info'>起点：
+                    <text>{{item.address}}</text>
+                  </view>
+                  <view class='info'>目的地：
+                    <text>{{item.aim_address}}</text>
+                  </view>
+                  <view class='info'>支付金额：
+                    <text>￥{{item.price}}</text>
+                  </view>
+                  <view class='info'>预约状态：
+                    <text wx:if="{{item.status_number ==1}}" class='status'>{{item.status_val}}</text>
+                    <text wx:if="{{item.status_number ==2}}" class='status2'>{{item.status_val}}</text>
+                    <text wx:if="{{item.status_number ==3}}" class='status3'>{{item.status_val}}</text>
+                    <text wx:if="{{item.status_number ==4}}" class='status4'>{{item.status_val}}</text>
+                  </view>
+                </view>
+                <button class='topay' data-type='{{item.type}}' wx:if="{{item.status_number==1}}" data-status='{{item.status_val}}' catchtap='payOrder' data-order_id='{{item.order_detail_id}}'>去支付</button>
+                <button class='confirmTasks' wx:if="{{item.status_number==2}}" data-type='{{item.type}}' data-order_id='{{item.order_detail_id}}' catchtap='confirmTasks'>确认</button>
+                <button class='toAssess' data-order_id='{{item.order_detail_id}}' wx:if="{{item.status_number==3}}" catchtap='toAssess' data-serverid='{{item.server_id}}'>去评价</button>
+              </view>
+            </block>
+            <block wx:for="{{orderList.server}}" wx:key="{{index}}">
+              <view class='shopsInfo kehuinfo'>
+                <view class='title'>预约专服信息</view>
+                <view class='detail'>
+                  <view class='info'>专服姓名：
+                    <text>{{item.realname}}</text>
+                  </view>
+                  <view class='info'>联系电话：
+                    <text>{{item.tel}}</text>
+                  </view>
+                  <view class='info'>预约时间：
+                    <text>{{item.expect_time}}</text>
+                  </view>
+                  <view class='info'>支付金额：
+                    <text>￥{{item.price}}</text>
+                  </view>
+                  <view class='info'>订单状态：
+                    <text wx:if="{{item.status_number ==1}}" class='status'>{{item.status_val}}</text>
+                    <text wx:if="{{item.status_number ==2}}" class='status2'>{{item.status_val}}</text>
+                    <text wx:if="{{item.status_number ==3}}" class='status3'>{{item.status_val}}</text>
+                    <text wx:if="{{item.status_number ==4}}" class='status4'>{{item.status_val}}</text>
+                  </view>
+                </view>
+                <button class='topay' data-type='{{item.type}}' wx:if="{{item.status_number==1}}" data-status='{{item.status_val}}' catchtap='payOrder' data-order_id='{{item.order_detail_id}}'>去支付</button>
+                <button class='confirmTasks' wx:if="{{item.status_number==2}}" data-type='{{item.type}}' data-order_id='{{item.order_detail_id}}' catchtap='confirmTasks'>确认</button>
+                <button class='toAssess' data-order_id='{{item.order_detail_id}}' wx:if="{{item.status_number==3}}" catchtap='toAssess' data-serverid='{{item.server_id}}'>去评价</button>
+              </view>
+            </block>
+          </view>
+          <!-- 没有数据部分  -->
+          <view class='no-data' wx:else>
+            <image src='/images/no-data.png'></image>
+            <text>你还没有相关订单</text>
+          </view>
+        </scroll-view>
+      </swiper-item>
+
+      <swiper-item wx:for="{{[3]}}" wx:key="">
+        <scroll-view scroll-y="true" class="scoll-h">
+          <view class="order" wx:if="{{length!=0}}">
+            <block wx:for="{{orderList.barman}}" wx:key="{{index}}">
+              <view class='shopsInfo kehuinfo'>
+                <view class='title'>调酒师派单信息</view>
+                <view class='detail'>
+                  <view class='info'>专服姓名：
+                    <text>{{item.realname}}</text>
+                  </view>
+                  <view class='info'>预约时间：
+                    <text>{{item.expect_time}}</text>
+                  </view>
+                  <view class='info'>联系电话：
+                    <text>{{item.tel}}</text>
+                  </view>
+                  <view class='info'>预约状态：
+                    <text class='status'>已取消</text>
+                  </view>
+                </view>
+              </view>
+            </block>
+            <block wx:for="{{orderList.driver}}" wx:key="{{index}}">
+              <view class='shopsInfo kehuinfo'>
+                <view class='title'>代驾派单信息</view>
+                <view class='detail'>
+                  <view class='info'>代驾姓名：
+                    <text>{{item.realname}}</text> </view>
+                  <view class='info'>联系电话：
+                    <text>{{item.tel}}</text>
+                  </view>
+                  <view class='info'>预约时间：
+                    <text>{{item.expect_time}}</text>
+                  </view>
+                  <view class='info'>起点：
+                    <text>{{item.address}}</text>
+                  </view>
+                  <view class='info' wx:if="{{item.aim_address !=null}}">目的地：
+                    <text>{{item.aim_address}}</text>
+                  </view>
+                  <view class='info'>预约状态：
+                    <text class='status'>已取消</text>
+                  </view>
+                </view>
+              </view>
+            </block>
+            <block wx:for="{{orderList.server}}" wx:key="{{index}}">
+              <view class='shopsInfo kehuinfo'>
+                <view class='title'>专服派单信息</view>
+                <view class='detail'>
+                  <view class='info'>专服姓名：
+                    <text>{{item.realname}}</text>
+                  </view>
+                  <view class='info'>联系电话：
+                    <text>{{item.tel}}</text>
+                  </view>
+                  <view class='info'>预约时间：
+                    <text>{{item.expect_time}}</text>
+                  </view>
+                  <view class='info'>预约状态：
+                    <text class='status'>已取消</text>
+                  </view>
+                </view>
+              </view>
+            </block>
+            <block wx:for="{{orderList.order}}" wx:key="{{index}}">
+              <view class='shopsInfo kehuinfo'>
+                <view class='title'>待派单信息</view>
+                <view class='detail'>
+                  <view class='info'>下单时间：
+                    <text>{{item.add_time}}</text>
+                  </view>
+                  <view class='info' wx:if="{{item.server1_number !=0}}">预约代驾：
+                    <text>{{item.server1_number}}人</text>
+                  </view>
+                  <view class='info' wx:if="{{item.server1_number !=0}}">预约代驾时间：
+                    <text>{{item.time1}}</text>
+                  </view>
+                  <view class='info' wx:if="{{item.server3_number !=0}}">预约专服：
+                    <text>{{item.server3_number}}人</text>
+                  </view>
+                  <view class='info' wx:if="{{item.server3_number !=0}}">预约专服时间：
+                    <text>{{item.time3}}</text>
+                  </view>
+                  <view class='info'>预约状态：
+                    <text class='status'>已取消</text>
+                  </view>
+                </view>
+              </view>
+            </block>
+          </view>
+          <!-- 没有数据部分  -->
+          <view class='no-data' wx:else>
+            <image src='/images/no-data.png'></image>
+            <text>你还没有相关订单</text>
+          </view>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>

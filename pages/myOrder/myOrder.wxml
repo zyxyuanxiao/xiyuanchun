@@ -1,0 +1,127 @@
+<view class="containers">
+  <view class='my-appointment'>
+    <view class='head-nav'>
+      <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+        <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav">待接受</view>
+        <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">进行中</view>
+        <view class="tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="swichNav">已完成</view>
+      </scroll-view>
+    </view>
+    <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:92vh">
+      <!--全部部分  -->
+      <swiper-item wx:for="{{[0]}}" wx:key="">
+        <scroll-view scroll-y="true" class="scoll-h">
+          <view class="order" wx:for="{{orderList}}" wx:key="{{item.order_id}}" data-lng='{{item.lng}}' data-lat='{{item.lat}}' data-orderId='{{item.order_id}}' data-address='{{item.receive_address}}'>
+            <view class='shopsInfo kehuinfo'>
+              <view class='title'>订单信息</view>
+              <view class='detail'>
+
+                <view class='info'>客户姓名：
+                  <text>{{item.receive_name}}</text>
+                </view>
+                <view class='info'>预约时间：
+                  <text>{{item.expect_time}}</text>
+                </view>
+                <view class='info'>联系电话：
+                  <text>{{item.receive_tel}}</text>
+                </view>
+                <view class='info'>预约地点：
+                  <text>{{item.address||item.receive_address}}</text>
+                </view>
+                <view class='info'>目的距离 ：
+                  <text>{{item.distance}}</text>
+                </view>
+                <view class='info'>预约状态：
+                  <text wx:if="{{item.status_number ==1}}" class='status'>{{item.status_val}}</text>
+                  <text wx:if="{{item.status_number ==2}}" class='status2'>{{item.status_val}}</text>
+                </view>
+
+              </view>
+              <view class='operation flex-row center around'>
+                <view class='accept' data-orderId='{{item.order_detail_id}}' data-status='accept' catchtap='operation'>接受</view>
+                <view class='refuse' data-orderId='{{item.order_detail_id}}' data-status='refuse' catchtap='operation'>拒绝</view>
+              </view>
+            </view>
+
+          </view>
+          <!-- 没有数据部分  -->
+          <view class='no-data' wx:if="{{orderList==''}}">
+            <image src='/images/no-data.png'></image>
+            <text>你还没有相关订单</text>
+          </view>
+        </scroll-view>
+      </swiper-item>
+      <swiper-item wx:for="{{[1]}}" wx:key="">
+        <scroll-view scroll-y="true" class="scoll-h">
+          <view class="order" wx:for="{{orderList}}" wx:key="{{item.order_id}}">
+            <view class='shopsInfo kehuinfo'>
+              <view class='title'>订单信息</view>
+              <view class='detail'>
+                <view class='info'>客户姓名：
+                  <text>{{item.receive_name}}</text>
+                </view>
+                <view class='info'>预约时间：
+                  <text>{{item.expect_time}}</text>
+                </view>
+                <view class='info'>联系电话：
+                  <text>{{item.receive_tel}}</text>
+                </view>
+                <view class='info'>预约地点：
+                  <text>{{item.address||item.receive_address}}</text>
+                </view>
+                <view class='info' wx:if="{{item.type==1&&item.aim_address !=null}}">
+                  预约终点：
+                  <text>{{item.aim_address}}</text>
+                </view>
+                <view class='info' wx:if="{{item.status_number==3}}">目的距离 ：
+                  <text>{{item.distance}}</text>
+                </view>
+                <view class='info'>预约状态：
+                  <text wx:if="{{item.status_number ==3}}" class='status'>{{item.status_val}}</text>
+                  <text wx:if="{{item.status_number ==4}}" class='status2'>{{item.status_val}}</text>
+                </view>
+              </view>
+              <view class='operation flex-row center around'>
+                <view class='accept' wx:if="{{item.status_number ==3}}" data-orderId='{{item.order_detail_id}}' catchtap='toStart' data-lat='{{item.lat}}' data-lng='{{item.lng}}' data-aimLat='{{item.aim_lat}}' data-aimLng="{{item.aim_lng}}" data-distance='{{item.distance}}'
+                  data-type='{{item.type}}' data-status="{{item.status_number}}">去开始</view>
+
+                <view class='refuse' wx:if="{{item.status_number ==4}}" data-orderId='{{item.order_detail_id}}' catchtap='toStart' data-lat='{{item.lat}}' data-lng='{{item.lng}}' data-aimLat='{{item.aim_lat}}' data-aimLng="{{item.aim_lng}}" data-distance='{{item.distance}}'
+                  data-type='{{item.type}}' data-aim_address='{{item.aim_address}}' data-status="{{item.status_number}}">去查看</view>
+              </view>
+            </view>
+          </view>
+          <!-- 没有数据部分  -->
+          <view class='no-data' wx:if="{{orderList==''}}">
+            <image src='/images/no-data.png'></image>
+            <text>你还没有相关订单</text>
+          </view>
+        </scroll-view>
+      </swiper-item>
+      <swiper-item wx:for="{{[2]}}" wx:key="">
+        <scroll-view scroll-y="true" class="scoll-h">
+          <view class="order" wx:for="{{orderList}}" wx:key="{{item.id}}">
+            <view class='shopsInfo kehuinfo'>
+              <view class='title'>订单信息</view>
+              <view class='detail'>
+                <view class='statuss'>{{item.status_val||'无'}}</view>
+                <view class='info'>服务对象：{{item.receive_name}}</view>
+                <view class='info'>服务地址：{{item.address||item.receive_address}}</view>
+                <view class='info'>联系电话：{{item.receive_tel}}</view>
+                <view class='info'>开始时间：{{item.begin_time}}</view>
+                <view class='info'>结束时间：{{item.end_time}}</view>
+                <view class='info' wx:if="{{item.money}}">实际收入：
+                  <text>￥{{item.money}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+          <!-- 没有数据部分  -->
+          <view class='no-data' wx:if="{{orderList==''}}">
+            <image src='/images/no-data.png'></image>
+            <text>你还没有相关订单</text>
+          </view>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>
